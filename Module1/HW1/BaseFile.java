@@ -17,4 +17,8 @@ public class BaseFile {
    private static int multipl(int a, int b){
        return a*b;
    }
+
+   private static double sqrt(int a){
+       return Math.sqrt(a);
+   }
 }
