@@ -7,12 +7,12 @@ import org.junit.Test;
 
 public class WebDriverSingletonTest {
 
-    private static final int increasSpeed = 300;
+    private static final int CONSTANT_SPEED = 300;
 
     @Test
     public void testWebDriverSingleton(){
-        WebDriver dr1 = WebDriverSingleton.increaseDriver(increasSpeed);
+        WebDriver dr1 = WebDriverSingleton.increaseDriver(CONSTANT_SPEED);
 
-        Assert.assertEquals(dr1.getSpeed(), increasSpeed);
+        Assert.assertEquals(dr1.getSpeed(), CONSTANT_SPEED);
     }
 }
