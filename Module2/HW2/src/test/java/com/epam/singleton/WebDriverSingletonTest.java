@@ -1,6 +1,6 @@
 package com.epam.singleton;
 
-import com.java.singleton.WebDriver;
+import com.java.singleton.WebDriverFactory;
 import com.java.singleton.WebDriverSingleton;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,7 +11,7 @@ public class WebDriverSingletonTest {
 
     @Test
     public void testWebDriverSingleton(){
-        WebDriver dr1 = WebDriverSingleton.increaseDriver(CONSTANT_SPEED);
+        WebDriverSingleton dr1 = WebDriverFactory.increaseSpeed(CONSTANT_SPEED);
 
         Assert.assertEquals(dr1.getSpeed(), CONSTANT_SPEED);
     }
