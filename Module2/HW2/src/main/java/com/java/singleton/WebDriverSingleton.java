@@ -2,7 +2,7 @@ package com.java.singleton;
 
 public class WebDriverSingleton {
 
-    private int speed;
+    private Integer speed;
 
     public int getSpeed() {
         return speed;
