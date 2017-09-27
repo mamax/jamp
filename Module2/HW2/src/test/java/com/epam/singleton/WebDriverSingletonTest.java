@@ -12,7 +12,6 @@ public class WebDriverSingletonTest {
     @Test
     public void testWebDriverSingleton(){
         WebDriverSingleton dr1 = WebDriverFactory.increaseSpeed(CONSTANT_SPEED);
-
         Assert.assertEquals(dr1.getSpeed(), CONSTANT_SPEED);
     }
 }
