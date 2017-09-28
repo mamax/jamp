@@ -33,18 +33,16 @@ public class Java7Aggregator implements Aggregator {
      * @param words Input list
      * @return Result list of words
      */
-    private List<String> getDuplicatedWords(List<String> words){
+    public static List<String> getDuplicatedWords(List<String> words){
         List<String> duplicates = new ArrayList<>();
-        List<String> nonDuplicates = new ArrayList<>();
+        List<String> original = new ArrayList<>();
 
         for (String word : words){
-            if (!nonDuplicates.contains(word) || nonDuplicates.isEmpty()){
-                nonDuplicates.add(word.toUpperCase());
+            if (original.contains(word.toLowerCase())){
+                    duplicates.add(word.toLowerCase());
             }
-            else{
-                if (nonDuplicates.contains(word.toUpperCase())){
-                    duplicates.add(word);
-                }
+            else if (!original.contains(word.toLowerCase()) || original.isEmpty()){
+                original.add(word.toLowerCase());
             }
         }
 
