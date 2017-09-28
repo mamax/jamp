@@ -6,6 +6,24 @@ import java.util.*;
 
 public class UtilsAggregator {
 
+     static final Comparator<? super Pair<String, Long>> PAIRS_COMPARATOR = new Comparator<Pair<String, Long>>() {
+        @Override
+        public int compare(Pair<String, Long> obj1, Pair<String, Long> obj2) {
+            if (obj1 == null) {
+                return -1;
+            }
+            if (obj2 == null) {
+                return 1;
+            }
+            if (obj1.equals( obj2 )) {
+                return 0;
+            }
+
+            int i = obj2.getValue().compareTo(obj1.getValue());
+            return i != 0 ? i : obj1.getKey().compareTo(obj2.getKey());
+        }
+    };
+
     static <T> List<T> getLimits(List<T> words, long limit) {
         ArrayList<T> limitedList = new ArrayList<>();
 
@@ -41,4 +59,5 @@ public class UtilsAggregator {
         }
         return list;
     }
+
 }
