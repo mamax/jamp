@@ -48,15 +48,6 @@ form, fieldset {
   word-spacing: -2px;
   color: #cb4b16; }
 
-.images {
-  position: relative;
-  top: 0px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0 auto;
-  display: block; }
-
 .holder {
   width: 690px;
   margin: 0 auto; }
@@ -72,12 +63,6 @@ form, fieldset {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   /*background-color  #073642 */
   margin-bottom: 20px; }
-
-.footer {
-  border-radius: 4px;
-  text-align: center;
-  position: relative;
-  margin-bottom: 15px; }
 
 .red {
   color: #862f24;
