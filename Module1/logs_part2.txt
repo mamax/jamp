@@ -1,0 +1,46 @@
+7e5fe15 (HEAD -> master, origin/master) HEAD@{0}: merge develop: Merge made by the 'recursive' strategy.
+358e275 HEAD@{1}: checkout: moving from develop to master
+7a7f568 (develop) HEAD@{2}: commit (merge): Merge branch 'first' into develop
+43f0b3c (second) HEAD@{3}: checkout: moving from second to develop
+43f0b3c (second) HEAD@{4}: checkout: moving from develop to second
+43f0b3c (second) HEAD@{5}: checkout: moving from second to develop
+43f0b3c (second) HEAD@{6}: rebase finished: returning to refs/heads/second
+43f0b3c (second) HEAD@{7}: rebase: checkout develop
+d6fc4ab HEAD@{8}: checkout: moving from develop to second
+43f0b3c (second) HEAD@{9}: rebase finished: returning to refs/heads/develop
+43f0b3c (second) HEAD@{10}: rebase: Added javascript files
+f903169 HEAD@{11}: rebase: Added json files
+4c8d9d6 HEAD@{12}: rebase: Modify meta tags [*.html]
+d6fc4ab HEAD@{13}: rebase: checkout second
+31e36fc HEAD@{14}: checkout: moving from second to develop
+d6fc4ab HEAD@{15}: commit: Moved files into index.html
+631ea75 HEAD@{16}: checkout: moving from second to second
+631ea75 HEAD@{17}: checkout: moving from develop to second
+31e36fc HEAD@{18}: rebase finished: returning to refs/heads/develop
+31e36fc HEAD@{19}: rebase: Added javascript files
+900e15f HEAD@{20}: rebase: Modify meta tags [*.html]
+b4d4d44 HEAD@{21}: rebase: Added json files
+44c8be9 HEAD@{22}: commit (amend): Modify meta tags [*.html]
+631ea75 HEAD@{23}: rebase: checkout second
+a7cedc6 HEAD@{24}: checkout: moving from hw2 to develop
+10bbc8d (origin/hw2, objectsmethod, hw2) HEAD@{25}: checkout: moving from develop to hw2
+a7cedc6 HEAD@{26}: rebase finished: returning to refs/heads/develop
+a7cedc6 HEAD@{27}: rebase: Added javascript files
+f0271a3 HEAD@{28}: rebase: Modify meta tags [*.html]
+9122a19 HEAD@{29}: rebase: Changed main[*.css]
+e2f2731 (first) HEAD@{30}: rebase: checkout first
+d5370a9 HEAD@{31}: rebase finished: returning to refs/heads/develop
+d5370a9 HEAD@{32}: rebase: Added javascript files
+631ea75 HEAD@{33}: rebase: checkout second
+3915e75 HEAD@{34}: checkout: moving from second to develop
+631ea75 HEAD@{35}: commit: Modify meta tags [*.html]
+16d1329 HEAD@{36}: commit: Changed main[*.css]
+0eaac6f (randomrebase, accidentallyrebase) HEAD@{37}: checkout: moving from first to second
+e2f2731 (first) HEAD@{38}: commit: Added json files
+e781d7f HEAD@{39}: commit: Chanded index file
+0eaac6f (randomrebase, accidentallyrebase) HEAD@{40}: checkout: moving from develop to first
+3915e75 HEAD@{41}: commit: Added javascript files
+0eaac6f (randomrebase, accidentallyrebase) HEAD@{42}: checkout: moving from second to develop
+0eaac6f (randomrebase, accidentallyrebase) HEAD@{43}: checkout: moving from first to second
+0eaac6f (randomrebase, accidentallyrebase) HEAD@{44}: checkout: moving from develop to first
+0eaac6f (randomrebase, accidentallyrebase) HEAD@{45}: checkout: moving from master to develop

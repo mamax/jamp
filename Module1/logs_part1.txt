@@ -1,0 +1,40 @@
+0eaac6f (HEAD -> master, origin/master, randomrebase, develop, accidentallyrebase) HEAD@{0}: rebase finished: returning to refs/heads/master
+0eaac6f (HEAD -> master, origin/master, randomrebase, develop, accidentallyrebase) HEAD@{1}: rebase: checkout develop
+4401d6d HEAD@{2}: checkout: moving from randomrebase to master
+0eaac6f (HEAD -> master, origin/master, randomrebase, develop, accidentallyrebase) HEAD@{3}: rebase finished: returning to refs/heads/randomrebase
+0eaac6f (HEAD -> master, origin/master, randomrebase, develop, accidentallyrebase) HEAD@{4}: rebase: checkout develop
+e026859 HEAD@{5}: checkout: moving from accidentallyrebase to randomrebase
+0eaac6f (HEAD -> master, origin/master, randomrebase, develop, accidentallyrebase) HEAD@{6}: rebase finished: returning to refs/heads/accidentallyrebase
+0eaac6f (HEAD -> master, origin/master, randomrebase, develop, accidentallyrebase) HEAD@{7}: rebase: checkout develop
+3e1071f HEAD@{8}: checkout: moving from develop to accidentallyrebase
+0eaac6f (HEAD -> master, origin/master, randomrebase, develop, accidentallyrebase) HEAD@{9}: rebase finished: returning to refs/heads/develop
+0eaac6f (HEAD -> master, origin/master, randomrebase, develop, accidentallyrebase) HEAD@{10}: rebase: Added_styles
+3e1071f HEAD@{11}: rebase: checkout accidentallyrebase
+e026859 HEAD@{12}: rebase finished: returning to refs/heads/develop
+e026859 HEAD@{13}: rebase: checkout randomrebase
+2603e33 (randombranch, accidentallybranch) HEAD@{14}: checkout: moving from randomrebase to develop
+e026859 HEAD@{15}: commit: Added_styles
+2603e33 (randombranch, accidentallybranch) HEAD@{16}: checkout: moving from develop to randomrebase
+2603e33 (randombranch, accidentallybranch) HEAD@{17}: checkout: moving from accidentallyrebase to develop
+3e1071f HEAD@{18}: commit: Added_photo_into_index1
+44cdaa5 HEAD@{19}: commit: Added_foto005_image
+4401d6d HEAD@{20}: checkout: moving from master to accidentallyrebase
+4401d6d HEAD@{21}: merge develop: Merge made by the 'recursive' strategy.
+88fbd18 HEAD@{22}: checkout: moving from randombranch to master
+2603e33 (randombranch, accidentallybranch) HEAD@{23}: merge develop: Fast-forward
+62138b0 HEAD@{24}: checkout: moving from accidentallybranch to randombranch
+2603e33 (randombranch, accidentallybranch) HEAD@{25}: merge develop: Fast-forward
+9d8a49a HEAD@{26}: checkout: moving from develop to accidentallybranch
+2603e33 (randombranch, accidentallybranch) HEAD@{27}: commit (merge): Branches 'accidentallybranch' and 'randombranch' were merged
+9d8a49a HEAD@{28}: merge accidentallybranch: Fast-forward
+1e7e2de HEAD@{29}: checkout: moving from randombranch to develop
+62138b0 HEAD@{30}: commit: Changed index1 file
+6f40630 HEAD@{31}: commit: Added some styles
+1e7e2de HEAD@{32}: checkout: moving from develop to randombranch
+1e7e2de HEAD@{33}: checkout: moving from accidentallybranch to develop
+9d8a49a HEAD@{34}: commit: Added image inside html file
+08b5b70 HEAD@{35}: commit: Added some images
+1e7e2de HEAD@{36}: checkout: moving from develop to accidentallybranch
+1e7e2de HEAD@{37}: commit: Added_index1
+d60868c HEAD@{38}: checkout: moving from master to develop
+88fbd18 HEAD@{39}: commit: init
