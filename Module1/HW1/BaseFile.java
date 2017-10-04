@@ -10,6 +10,11 @@ public class BaseFile {
         return a+b+c;
     }
 
+    public int add(int a, int b, int c, int d){
+        System.out.println("This is add method  with 4 parameters");
+        return a+b+c+d;
+    }
+
     public int sub(int a, int b){
         return a-b;
     }
