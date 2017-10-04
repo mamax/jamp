@@ -1,0 +1,9 @@
+{
+  "assetTypes": [
+    {
+      "name": "assetTypeChildForLink",
+      "displayName": "assetDisplayName",
+      "readOnly": true
+    }
+  ]
+}
