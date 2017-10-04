@@ -15,5 +15,9 @@ public class BaseFile {
     public long mult(int a, int b){
         return a*b;
     }
+	
+	public double sqrt(int a){
+        return Math.sqrt(a);
+    }
 
 }
