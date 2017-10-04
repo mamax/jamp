@@ -1,0 +1,32 @@
+01f099f (HEAD -> master, origin/master) HEAD@{0}: merge develop: Merge made by the 'recursive' strategy.
+322d21d HEAD@{1}: checkout: moving from develop to master
+65bd511 (develop, advancedOperation) HEAD@{2}: merge advancedOperation: Fast-forward
+4e52fec (otherOperation) HEAD@{3}: checkout: moving from advancedOperation to develop
+65bd511 (develop, advancedOperation) HEAD@{4}: commit: Pasted line to the add method with 2 params
+59b4f03 HEAD@{5}: checkout: moving from b81ada39ed3afc5fb777add0e4b0692bc77bff75 to advancedOperation
+b81ada3 HEAD@{6}: checkout: moving from advancedOperation to b81ada39ed3afc5fb777add0e4b0692bc77bff75
+59b4f03 HEAD@{7}: commit: Added realization with 4 parameters
+bfcfe2c HEAD@{8}: commit (amend): Added realization with 3 parameters
+ddfcb32 HEAD@{9}: commit: Added realization with 3 parameters
+b81ada3 HEAD@{10}: commit: Added first line of method
+4e52fec (otherOperation) HEAD@{11}: checkout: moving from develop to advancedOperation
+4e52fec (otherOperation) HEAD@{12}: checkout: moving from advancedOperation to develop
+4e52fec (otherOperation) HEAD@{13}: checkout: moving from develop to advancedOperation
+4e52fec (otherOperation) HEAD@{14}: checkout: moving from otherOperation to develop
+4e52fec (otherOperation) HEAD@{15}: checkout: moving from develop to otherOperation
+4e52fec (otherOperation) HEAD@{16}: rebase finished: returning to refs/heads/develop
+4e52fec (otherOperation) HEAD@{17}: rebase: checkout otherOperation
+0556063 HEAD@{18}: checkout: moving from otherOperation to develop
+4e52fec (otherOperation) HEAD@{19}: commit: Changed name back to sqrt
+01ad66d HEAD@{20}: reset: moving to 01ad66ddc4be597de2de1dc3a97185cdb5592f6e
+4858473 HEAD@{21}: commit: Added sqrt operation realization
+01ad66d HEAD@{22}: commit: Added mult operation realization
+e214bf6 HEAD@{23}: commit: Added subtraction operation realization
+7edcdfb HEAD@{24}: commit: Added subtraction operation realization
+0556063 HEAD@{25}: checkout: moving from develop to otherOperation
+0556063 HEAD@{26}: checkout: moving from otherOperation to develop
+d97c649 HEAD@{27}: checkout: moving from develop to otherOperation
+0556063 HEAD@{28}: checkout: moving from otherOperation to develop
+d97c649 HEAD@{29}: checkout: moving from develop to otherOperation
+0556063 HEAD@{30}: commit: Added add operation realization
+a8302d1 HEAD@{31}: checkout: moving from master to develop
