@@ -1,7 +1,5 @@
 package com.epam.singleton;
 
-import com.java.singleton.WebDriverFactory;
-import com.java.singleton.WebDriverSingleton;
 import org.junit.Assert;
 import org.junit.Test;
 
