@@ -10,3 +10,7 @@
 ### Static Factory method
  - created objects without additional classes and more convenient than just constructor
 
+
+
+### Inner classes
+- created 3 inner classes & wrote unit tests
