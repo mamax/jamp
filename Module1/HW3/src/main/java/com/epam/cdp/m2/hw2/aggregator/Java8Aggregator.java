@@ -31,6 +31,5 @@ public class Java8Aggregator implements Aggregator {
                 filter(n -> !all.add(n)).
                 limit(limit).
                 collect(Collectors.toList());
-
     }
 }
