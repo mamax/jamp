@@ -24,6 +24,17 @@ public class UtilsAggregator {
         }
     };
 
+    static final Comparator<String> STRINGS_COMPARATOR = new Comparator<String>() {
+        @Override
+        public int compare(String o1, String o2) {
+             if (o1.length() == o2.length()) {
+                return (o1.compareTo(o2));
+            } else {
+                return o1.length() < o2.length() ? -1 : 1;
+            }
+        }
+    };
+
     static <T> List<T> getLimits(List<T> words, long limit) {
         ArrayList<T> limitedList = new ArrayList<>();
 
@@ -35,7 +46,7 @@ public class UtilsAggregator {
                 limitedList.add(words.get((int) i));
             }
         }
-
+        System.out.println(limitedList);
         return limitedList;
     }
 

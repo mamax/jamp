@@ -54,7 +54,7 @@ public class Java7Aggregator implements Aggregator {
      * @param words input list of words
      * @return list of words, sorted by frequency
      */
-    private List<Pair<String, Long>> getSortedFrequentWords(List<String> words) {
+    public List<Pair<String, Long>> getSortedFrequentWords(List<String> words) {
         List<Pair<String, Long>> list;
 
         final HashMap<String, Long> pairs = new HashMap();
