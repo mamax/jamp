@@ -37,7 +37,6 @@ public class Java7ParallelAggregator implements Aggregator {
                 duplicates.add(map.getKey());
             }
         }
-        
         duplicates.sort(STRINGS_COMPARATOR);
         return UtilsAggregator.getLimits(duplicates, limit);
     }
