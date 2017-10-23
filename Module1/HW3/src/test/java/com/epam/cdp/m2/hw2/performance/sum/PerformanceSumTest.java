@@ -8,7 +8,6 @@ import org.junit.runners.Parameterized;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 public abstract class PerformanceSumTest extends CommonMethods {
 
@@ -28,17 +27,6 @@ public abstract class PerformanceSumTest extends CommonMethods {
         data.add(new Object[]{getRandomArray(53000)});
         data.add(new Object[]{getRandomArray(180000)});
         return data;
-    }
-
-    private static List<Integer> getRandomArray(int value) {
-        ArrayList<Integer> temp = new ArrayList<>();
-        Random rand  = new Random();
-
-        for (int i=0; i<value; i++){
-            temp.add(rand.nextInt(47));
-        }
-
-        return temp;
     }
 
     @Test

@@ -29,4 +29,16 @@ public class CommonMethods {
 
         return tempArray;
     }
+
+    protected static List<Integer> getRandomArray(int value) {
+        ArrayList<Integer> temp = new ArrayList<>();
+        Random rand  = new Random();
+
+        for (int i=0; i<value; i++){
+            temp.add(rand.nextInt(47));
+        }
+
+        return temp;
+    }
+
 }
