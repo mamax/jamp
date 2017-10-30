@@ -1,11 +1,22 @@
 package com.epam.spring.domain;
 
-public class User extends DomainObject {
+import com.epam.spring.model.User;
 
-    private Long id;
+public class UserEntity implements User {
+
     private String name;
-    private String lastName;
     private String email;
+    private Long userId;
+
+    @Override
+    public long getId() {
+        return userId;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.userId=id;
+    }
 
     public String getName() {
         return name;
@@ -13,14 +24,6 @@ public class User extends DomainObject {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {

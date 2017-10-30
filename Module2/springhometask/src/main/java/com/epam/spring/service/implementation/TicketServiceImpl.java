@@ -1,54 +1,30 @@
 package com.epam.spring.service.implementation;
 
-import com.epam.spring.domain.Event;
-import com.epam.spring.domain.Ticket;
-import com.epam.spring.domain.User;
-import com.epam.spring.service.model.TicketService;
+import com.epam.spring.dao.interfaces.TicketDAO;
+import com.epam.spring.domain.EventEntity;
+import com.epam.spring.domain.TicketEntity;
+import com.epam.spring.domain.UserEntity;
+import com.epam.spring.model.Ticket;
 
-public class TicketServiceImpl implements TicketService {
+import java.util.List;
 
-    Ticket ticket;
-    Event event;
-    User user;
-    TicketService ticketService;
+public class TicketServiceImpl {
 
-    public long getId() {
-        return ticket.getId();
+    TicketDAO ticketDao;
+
+    public TicketEntity bookTicket(long userId, long eventId, int place, Ticket.Category category) {
+        return null;
     }
 
-    public void setId(long id) {
-        ticket.setId(id);
+    public List<TicketEntity> getBookedTickets(UserEntity userEntity, int pageSize, int pageNum) {
+        return null;
     }
 
-    public long getEventId() {
-        return event.getId();
+    public List<EventEntity> getBookedTickets(EventEntity userEntity, int pageSize, int pageNum) {
+        return null;
     }
 
-    public void setEventId(long eventId) {
-        event.setId(eventId);
-    }
-
-    public long getUserId() {
-        return user.getId();
-    }
-
-    public void setUserId(long userId) {
-        user.setId(userId);
-    }
-
-    public Category getCategory() {
-        return ticketService.getCategory();
-    }
-
-    public void setCategory(Category category) {
-        ticketService.setCategory(category);
-    }
-
-    public int getPlace() {
-        return ticket.getPlace();
-    }
-
-    public void setPlace(int place) {
-        ticket.setPlace(place);
+    public boolean cancelTicket(long ticketId) {
+        return false;
     }
 }

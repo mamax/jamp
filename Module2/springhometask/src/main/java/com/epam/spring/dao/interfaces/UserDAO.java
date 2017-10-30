@@ -1,15 +1,15 @@
 package com.epam.spring.dao.interfaces;
 
-import com.epam.spring.domain.UserObject;
+import com.epam.spring.domain.UserEntity;
 
 import java.util.List;
 
 public interface UserDAO {
 
-    UserObject getUserById(long userId);
-    UserObject getUserByEmail(String email);
-    List<UserObject> getUsersByName(String name);
-    UserObject createUser(UserObject userObject);
-    UserObject updateUser(UserObject userObject);
+    UserEntity getUserById(long userId);
+    UserEntity getUserByEmail(String email);
+    List<UserEntity> getUsersByName(String name);
+    UserEntity createUser(UserEntity userEntity);
+    UserEntity updateUser(UserEntity userEntity);
     boolean deleteUser(long userId);
 }

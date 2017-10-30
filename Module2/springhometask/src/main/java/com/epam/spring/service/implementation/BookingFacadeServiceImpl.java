@@ -1,76 +1,82 @@
 package com.epam.spring.service.implementation;
 
-import com.epam.spring.domain.Event;
-import com.epam.spring.domain.Ticket;
-import com.epam.spring.domain.User;
+import com.epam.spring.domain.EventEntity;
+import com.epam.spring.domain.TicketEntity;
+import com.epam.spring.domain.UserEntity;
 import com.epam.spring.facade.BookingFacade;
+import com.epam.spring.model.Ticket;
 
 import java.util.Date;
 import java.util.List;
 
 public class BookingFacadeServiceImpl implements BookingFacade {
 
-    public Event getEventById() {
-        return null;
+    EventServiceImpl eventService;
+    UserServiceImpl userService;
+    TicketServiceImpl ticketService;
+
+    @Override
+    public EventEntity getEventById(long eventId) {
+        return eventService.getEventById(eventId);
     }
 
-    public List<Event> getEventsByTitle(String title, int pageSize, int pageNum) {
-        return null;
+    public List<EventEntity> getEventsByTitle(String title, int pageSize, int pageNum) {
+        return eventService.getEventsByTitle(title, pageSize, pageNum);
     }
 
-    public List<Event> getEventsForDay(Date day, int pageSize, int pageNum) {
-        return null;
+    public List<EventEntity> getEventsForDay(Date day, int pageSize, int pageNum) {
+        return eventService.getEventsForDay(day, pageSize, pageNum);
     }
 
-    public Event createEvent(Event event) {
-        return null;
+    public EventEntity createEvent(EventEntity eventEntity) {
+        return eventService.createEvent(eventEntity);
     }
 
-    public Event updateEvent(Event event) {
-        return null;
+    public EventEntity updateEvent(EventEntity eventEntity) {
+        return eventService.updateEvent(eventEntity);
     }
 
     public boolean deleteEvent(long eventId) {
-        return false;
+        return eventService.deleteEvent(eventId);
     }
 
-    public User getUserById(long userId) {
-        return null;
+    public UserEntity getUserById(long userId) {
+        return userService.getUserById(userId);
     }
 
-    public User getUserByEmail(String email) {
-        return null;
+    public UserEntity getUserByEmail(String email) {
+        return userService.getUserByEmail(email);
     }
 
-    public List<User> getUsersByName(String name, int pageSize, int pageNum) {
-        return null;
+    public List<UserEntity> getUsersByName(String name, int pageSize, int pageNum) {
+        return userService.getUsersByName(name, pageSize, pageNum);
     }
 
-    public User createUser(User user) {
-        return null;
+    public UserEntity createUser(UserEntity userEntity) {
+        return userService.createUser(userEntity);
     }
 
-    public User updateUser(User user) {
-        return null;
+    public UserEntity updateUser(UserEntity userEntity) {
+        return userService.updateUser(userEntity);
     }
 
     public boolean deleteUser(long userId) {
-        return false;
+        return userService.deleteUser(userId);
     }
 
-    public Ticket bookTicket(long userId, long eventId, int place, Ticket.Category category) {
-        return null;
+    public TicketEntity bookTicket(long userId, long eventId, int place, Ticket.Category category) {
+        return ticketService.bookTicket(userId, eventId, place, category);
     }
 
-    public List<Ticket> getBookedTickets(User user, int pageSize, int pageNum) {
-        return null;
+    public List<TicketEntity> getBookedTickets(UserEntity userEntity, int pageSize, int pageNum) {
+        return ticketService.getBookedTickets(userEntity, pageSize, pageNum);
     }
 
-    public List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum) {
-        return null;
+    public List<EventEntity> getBookedTickets(EventEntity eventEntity, int pageSize, int pageNum) {
+        return ticketService.getBookedTickets(eventEntity, pageSize, pageNum);
     }
 
     public boolean cancelTicket(long ticketId) {
-        return false;
+        return ticketService.cancelTicket(ticketId);
     }
 }

@@ -1,35 +1,38 @@
 package com.epam.spring.service.implementation;
 
-import com.epam.spring.domain.Event;
-import com.epam.spring.service.model.EventService;
+import com.epam.spring.domain.EventEntity;
+import com.epam.spring.model.Event;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class EventServiceImpl implements EventService {
+public class EventServiceImpl {
 
-    private Event event;
+    private static Map<Long, Event> eventMap = new HashMap<>();
 
-    public long getId() {
-        return event.getId();
+    public List<EventEntity> getEventsForDay(Date day, int pageSize, int pageNum) {
+        return null;
     }
 
-    public void setId(long id) {
-            event.setId(id);
+    public List<EventEntity> getEventsByTitle(String title, int pageSize, int pageNum) {
+        return null;
     }
 
-    public String getTitle() {
-        return event.getTitle();
+    public EventEntity createEvent(EventEntity eventEntity) {
+        return null;
     }
 
-    public void setTitle(String title) {
-            event.setTitle(title);
+    public EventEntity updateEvent(EventEntity eventEntity) {
+        return null;
     }
 
-    public Date getDate() {
-        return event.getDate();
+    public boolean deleteEvent(long eventId) {
+        return false;
     }
 
-    public void setDate(Date date) {
-        event.setDate(date);
+    public EventEntity getEventById(long eventId) {
+        return null;
     }
 }

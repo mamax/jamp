@@ -1,14 +1,14 @@
-package com.epam.spring.service.model;
+package com.epam.spring.model;
 
 /**
  * Created by maksym_govorischev.
  */
-public interface TicketService {
+public interface Ticket {
     enum Category {STANDARD, PREMIUM, BAR}
 
     /**
-     * TicketService Id. UNIQUE.
-     * @return TicketService Id.
+     * Ticket Id. UNIQUE.
+     * @return Ticket Id.
      */
     long getId();
     void setId(long id);

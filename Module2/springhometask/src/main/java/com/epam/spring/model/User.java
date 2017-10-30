@@ -1,9 +1,9 @@
-package com.epam.spring.service.model;
+package com.epam.spring.model;
 
 /**
  * Created by maksym_govorischev on 14/03/14.
  */
-public interface UserService {
+public interface User {
     /**
      * UserServiceImpl Id. UNIQUE.
      * @return UserServiceImpl Id.

@@ -1,11 +1,11 @@
-package com.epam.spring.service.model;
+package com.epam.spring.model;
 
 import java.util.Date;
 
 /**
  * Created by maksym_govorischev.
  */
-public interface EventService {
+public interface Event {
     /**
      * EventServiceImpl id. UNIQUE.
      * @return EventServiceImpl Id

@@ -1,33 +1,35 @@
 package com.epam.spring.service.implementation;
 
-import com.epam.spring.domain.User;
-import com.epam.spring.service.model.UserService;
+import com.epam.spring.dao.interfaces.UserDAO;
+import com.epam.spring.domain.UserEntity;
 
-public class UserServiceImpl implements UserService {
+import java.util.List;
 
-    private User user;
+public class UserServiceImpl{
 
-    public long getId() {
-        return user.getId();
+    UserDAO userDAO;
+
+    public UserEntity getUserById(long userId) {
+        return null;
     }
 
-    public void setId(long id) {
-        user.setId(id);
+    public UserEntity getUserByEmail(String email) {
+        return null;
     }
 
-    public String getName() {
-        return user.getName();
+    public List<UserEntity> getUsersByName(String name, int pageSize, int pageNum) {
+        return null;
     }
 
-    public void setName(String name) {
-        user.setName(name);
+    public UserEntity createUser(UserEntity userEntity) {
+        return null;
     }
 
-    public String getEmail() {
-        return user.getEmail();
+    public UserEntity updateUser(UserEntity userEntity) {
+        return null;
     }
 
-    public void setEmail(String email) {
-            user.setEmail(email);
+    public boolean deleteUser(long userId) {
+        return false;
     }
 }
