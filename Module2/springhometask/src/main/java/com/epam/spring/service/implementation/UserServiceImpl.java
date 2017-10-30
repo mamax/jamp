@@ -1,7 +1,8 @@
 package com.epam.spring.service.implementation;
 
 import com.epam.spring.dao.interfaces.UserDAO;
-import com.epam.spring.domain.UserEntity;
+import com.epam.spring.model.User;
+import com.epam.spring.utils.Utils;
 
 import java.util.List;
 
@@ -9,27 +10,28 @@ public class UserServiceImpl{
 
     UserDAO userDAO;
 
-    public UserEntity getUserById(long userId) {
-        return null;
+    public User getUserById(long userId) {
+        return userDAO.getUserById(userId);
     }
 
-    public UserEntity getUserByEmail(String email) {
-        return null;
+    public User getUserByEmail(String email) {
+        return userDAO.getUserByEmail(email);
     }
 
-    public List<UserEntity> getUsersByName(String name, int pageSize, int pageNum) {
-        return null;
+    public List<User> getUsersByName(String name, int pageSize, int pageNum) {
+        List<User> userList = Utils.getPageFromList(userDAO.getUsersByName(name), pageSize, pageNum);
+        return userList;
     }
 
-    public UserEntity createUser(UserEntity userEntity) {
-        return null;
+    public User createUser(User userEntity) {
+        return userDAO.createUser(userEntity);
     }
 
-    public UserEntity updateUser(UserEntity userEntity) {
-        return null;
+    public User updateUser(User userEntity) {
+        return userDAO.updateUser(userEntity);
     }
 
     public boolean deleteUser(long userId) {
-        return false;
+        return userDAO.deleteUser(userId);
     }
 }

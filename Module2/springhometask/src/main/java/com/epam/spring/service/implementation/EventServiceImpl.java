@@ -1,38 +1,37 @@
 package com.epam.spring.service.implementation;
 
-import com.epam.spring.domain.EventEntity;
+import com.epam.spring.dao.interfaces.EventDAO;
 import com.epam.spring.model.Event;
+import com.epam.spring.utils.Utils;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class EventServiceImpl {
 
-    private static Map<Long, Event> eventMap = new HashMap<>();
+    EventDAO eventDAO;
 
-    public List<EventEntity> getEventsForDay(Date day, int pageSize, int pageNum) {
-        return null;
+    public List<Event> getEventsByTitle(String title, int pageSize, int pageNum) {
+        return Utils.getPageFromList(eventDAO.getEventsByTitle(title), pageSize, pageNum);
     }
 
-    public List<EventEntity> getEventsByTitle(String title, int pageSize, int pageNum) {
-        return null;
+    public List<Event> getEventsForDay(Date day, int pageSize, int pageNum) {
+        return Utils.getPageFromList(eventDAO.getEventsForDay(day), pageSize, pageNum);
     }
 
-    public EventEntity createEvent(EventEntity eventEntity) {
-        return null;
+    public Event createEvent(Event eventEntity) {
+        return eventDAO.createEvent(eventEntity);
     }
 
-    public EventEntity updateEvent(EventEntity eventEntity) {
-        return null;
+    public Event updateEvent(Event eventEntity) {
+        return eventDAO.updateEvent(eventEntity);
     }
 
     public boolean deleteEvent(long eventId) {
-        return false;
+        return eventDAO.deleteEvent(eventId);
     }
 
-    public EventEntity getEventById(long eventId) {
-        return null;
+    public Event getEventById(long eventId) {
+        return eventDAO.getEventById(eventId);
     }
 }

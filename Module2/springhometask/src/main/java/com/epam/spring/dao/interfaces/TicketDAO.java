@@ -1,16 +1,16 @@
 package com.epam.spring.dao.interfaces;
 
-import com.epam.spring.domain.EventEntity;
-import com.epam.spring.domain.TicketEntity;
-import com.epam.spring.domain.UserEntity;
+import com.epam.spring.model.Event;
+import com.epam.spring.model.Ticket;
+import com.epam.spring.model.User;
 
 import java.util.List;
 
 public interface TicketDAO {
 
-    TicketEntity createTicket(TicketEntity ticketEntity);
-    List<TicketEntity> getBookedTickets(UserEntity userEntity);
-    List<TicketEntity> getBookedTickets(EventEntity eventEntity);
+    Ticket createTicket(Ticket ticket);
+    List<Ticket> getBookedTickets(User user);
+    List<Ticket> getBookedTickets(Event event);
     boolean cancelTicket(long ticketId);
 
 }
