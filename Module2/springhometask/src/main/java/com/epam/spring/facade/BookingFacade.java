@@ -1,8 +1,8 @@
 package com.epam.spring.facade;
 
-import com.epam.spring.domain.EventEntity;
-import com.epam.spring.domain.TicketEntity;
-import com.epam.spring.domain.UserEntity;
+import com.epam.spring.model.Event;
+import com.epam.spring.model.Ticket;
+import com.epam.spring.model.User;
 
 import java.util.Date;
 import java.util.List;
@@ -15,19 +15,19 @@ public interface BookingFacade {
 
     /**
      * Gets event by its id.
-     * @return EventEntity.
+     * @return Event.
      */
-    EventEntity getEventById(long eventId);
+    Event getEventById(long eventId);
 
     /**
      * Get list of events by matching title. Title is matched using 'contains' approach.
      * In case nothing was found, empty list is returned.
-     * @param title EventEntity title or it's part.
+     * @param title Event title or it's part.
      * @param pageSize Pagination param. Number of events to return on a page.
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
      * @return List of events.
      */
-    List<EventEntity> getEventsByTitle(String title, int pageSize, int pageNum);
+    List<Event> getEventsByTitle(String title, int pageSize, int pageNum);
 
     /**
      * Get list of events for specified day.
@@ -37,41 +37,41 @@ public interface BookingFacade {
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
      * @return List of events.
      */
-    List<EventEntity> getEventsForDay(Date day, int pageSize, int pageNum);
+    List<Event> getEventsForDay(Date day, int pageSize, int pageNum);
 
     /**
-     * Creates new eventEntity. EventEntity id should be auto-generated.
-     * @param eventEntity EventEntity data.
-     * @return Created EventEntity object.
+     * Creates new event. Event id should be auto-generated.
+     * @param event Event data.
+     * @return Created Event object.
      */
-    EventEntity createEvent(EventEntity eventEntity);
+    Event createEvent(Event event);
 
     /**
-     * Updates eventEntity using given data.
-     * @param eventEntity EventEntity data for update. Should have id set.
-     * @return Updated EventEntity object.
+     * Updates event using given data.
+     * @param event Event data for update. Should have id set.
+     * @return Updated Event object.
      */
-    EventEntity updateEvent(EventEntity eventEntity);
+    Event updateEvent(Event event);
 
     /**
      * Deletes event by its id.
-     * @param eventId EventEntity id.
+     * @param eventId Event id.
      * @return Flag that shows whether event has been deleted.
      */
     boolean deleteEvent(long eventId);
 
     /**
      * Gets user by its id.
-     * @param userId UserEntity id.
-     * @return UserEntity.
+     * @param userId User id.
+     * @return User.
      */
-    UserEntity getUserById(long userId);
+    User getUserById(long userId);
 
     /**
      * Gets user by its email. Email is strictly matched.
-     * @return UserEntity.
+     * @return User.
      */
-    UserEntity getUserByEmail(String email);
+    User getUserByEmail(String email);
 
     /**
      * Get list of users by matching name. Name is matched using 'contains' approach.
@@ -81,61 +81,61 @@ public interface BookingFacade {
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
      * @return List of users.
      */
-    List<UserEntity> getUsersByName(String name, int pageSize, int pageNum);
+    List<User> getUsersByName(String name, int pageSize, int pageNum);
 
     /**
-     * Creates new userEntity. UserEntity id should be auto-generated.
-     * @param userEntity UserEntity data.
-     * @return Created UserEntity object.
+     * Creates new user. User id should be auto-generated.
+     * @param user User data.
+     * @return Created User object.
      */
-    UserEntity createUser(UserEntity userEntity);
+    User createUser(User user);
 
     /**
-     * Updates userEntity using given data.
-     * @param userEntity UserEntity data for update. Should have id set.
-     * @return Updated UserEntity object.
+     * Updates user using given data.
+     * @param user User data for update. Should have id set.
+     * @return Updated User object.
      */
-    UserEntity updateUser(UserEntity userEntity);
+    User updateUser(User user);
 
     /**
      * Deletes user by its id.
-     * @param userId UserEntity id.
+     * @param userId User id.
      * @return Flag that shows whether user has been deleted.
      */
     boolean deleteUser(long userId);
 
     /**
      * Book ticket for a specified event on behalf of specified user.
-     * @param userId UserEntity Id.
-     * @param eventId EventEntity Id.
+     * @param userId User Id.
+     * @param eventId Event Id.
      * @param place Place number.
      * @param category Service category.
      * @return Booked ticket object.
-     * @throws IllegalStateException if this place has already been booked.
+     * @throws java.lang.IllegalStateException if this place has already been booked.
      */
-    TicketEntity bookTicket(long userId, long eventId, int place, TicketEntity.Category category);
+    Ticket bookTicket(long userId, long eventId, int place, Ticket.Category category);
 
     /**
-     * Get all booked tickets for specified userEntity. Tickets should be sorted by event date in descending order.
-     * @param userEntity UserEntity
+     * Get all booked tickets for specified user. Tickets should be sorted by event date in descending order.
+     * @param user User
      * @param pageSize Pagination param. Number of tickets to return on a page.
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
-     * @return List of TicketEntity objects.
+     * @return List of Ticket objects.
      */
-    List<TicketEntity> getBookedTickets(UserEntity userEntity, int pageSize, int pageNum);
+    List<Ticket> getBookedTickets(User user, int pageSize, int pageNum);
 
     /**
-     * Get all booked tickets for specified eventEntity. Tickets should be sorted in by user email in ascending order.
-     * @param eventEntity EventEntity
+     * Get all booked tickets for specified event. Tickets should be sorted in by user email in ascending order.
+     * @param event Event
      * @param pageSize Pagination param. Number of tickets to return on a page.
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
-     * @return List of TicketEntity objects.
+     * @return List of Ticket objects.
      */
-    List<EventEntity> getBookedTickets(EventEntity eventEntity, int pageSize, int pageNum);
+    List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum);
 
     /**
      * Cancel ticket with a specified id.
-     * @param ticketId TicketEntity id.
+     * @param ticketId Ticket id.
      * @return Flag whether anything has been canceled.
      */
     boolean cancelTicket(long ticketId);
