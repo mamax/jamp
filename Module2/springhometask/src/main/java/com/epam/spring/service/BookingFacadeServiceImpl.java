@@ -1,4 +1,4 @@
-package com.epam.spring.service.implementation;
+package com.epam.spring.service;
 
 import com.epam.spring.facade.BookingFacade;
 import com.epam.spring.model.Event;

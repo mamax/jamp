@@ -1,4 +1,4 @@
-package com.epam.spring.service.implementation;
+package com.epam.spring.service;
 
 import com.epam.spring.dao.interfaces.UserDAO;
 import com.epam.spring.model.User;
