@@ -19,7 +19,7 @@ public class UserServiceImpl{
     }
 
     public List<User> getUsersByName(String name, int pageSize, int pageNum) {
-        List<User> userList = Utils.getPageFromList(userDAO.getUsersByName(name), pageSize, pageNum);
+        List<User> userList = Utils.getItemsFromPages(userDAO.getUsersByName(name), pageSize, pageNum);
         return userList;
     }
 

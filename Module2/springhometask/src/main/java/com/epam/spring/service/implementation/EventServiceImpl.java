@@ -12,11 +12,11 @@ public class EventServiceImpl {
     EventDAO eventDAO;
 
     public List<Event> getEventsByTitle(String title, int pageSize, int pageNum) {
-        return Utils.getPageFromList(eventDAO.getEventsByTitle(title), pageSize, pageNum);
+        return Utils.getItemsFromPages(eventDAO.getEventsByTitle(title), pageSize, pageNum);
     }
 
     public List<Event> getEventsForDay(Date day, int pageSize, int pageNum) {
-        return Utils.getPageFromList(eventDAO.getEventsForDay(day), pageSize, pageNum);
+        return Utils.getItemsFromPages(eventDAO.getEventsForDay(day), pageSize, pageNum);
     }
 
     public Event createEvent(Event eventEntity) {

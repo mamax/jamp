@@ -25,11 +25,11 @@ public class TicketServiceImpl {
     }
 
     public List<Ticket> getBookedTickets(User userEntity, int pageSize, int pageNum) {
-        return Utils.getPageFromList(ticketDao.getBookedTickets(userEntity), pageSize, pageNum);
+        return Utils.getItemsFromPages(ticketDao.getBookedTickets(userEntity), pageSize, pageNum);
     }
 
     public List<Ticket> getBookedTickets(Event eventEntity, int pageSize, int pageNum) {
-        return Utils.getPageFromList(ticketDao.getBookedTickets(eventEntity), pageSize, pageNum);
+        return Utils.getItemsFromPages(ticketDao.getBookedTickets(eventEntity), pageSize, pageNum);
     }
 
     public boolean cancelTicket(long ticketId) {
