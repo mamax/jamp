@@ -8,6 +8,9 @@ public class UserEntity implements User {
     private String email;
     private Long userId;
 
+    public UserEntity() {
+    }
+
     @Override
     public long getId() {
         return userId;
@@ -34,4 +37,10 @@ public class UserEntity implements User {
         this.email = email;
     }
 
+    public static User createUser(String name, String email) {
+        User user = new UserEntity();
+        user.setEmail(email);
+        user.setName(name);
+        return user;
+    }
 }
