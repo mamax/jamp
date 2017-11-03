@@ -15,4 +15,6 @@
 
     <bean id="bookingService" class="com.epam.spring.service.BookingFacadeServiceImpl"/>
 
+    <bean id="storage" class="com.epam.spring.repository.Repository"/>
+
 </beans>
