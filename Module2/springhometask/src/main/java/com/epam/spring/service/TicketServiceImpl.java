@@ -1,6 +1,6 @@
 package com.epam.spring.service;
 
-import com.epam.spring.dao.interfaces.TicketDAO;
+import com.epam.spring.dao.impl.StaticTicketDao;
 import com.epam.spring.domain.TicketEntity;
 import com.epam.spring.model.Event;
 import com.epam.spring.model.Ticket;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TicketServiceImpl {
 
-    TicketDAO ticketDao;
+    StaticTicketDao ticketDao;
 
     public Ticket bookTicket(long userId, long eventId, int place, Ticket.Category category) {
 

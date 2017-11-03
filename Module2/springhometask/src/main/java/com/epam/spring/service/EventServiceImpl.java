@@ -1,6 +1,6 @@
 package com.epam.spring.service;
 
-import com.epam.spring.dao.interfaces.EventDAO;
+import com.epam.spring.dao.impl.StaticEventDao;
 import com.epam.spring.model.Event;
 import com.epam.spring.utils.Utils;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 public class EventServiceImpl {
 
-    EventDAO eventDAO;
+    StaticEventDao eventDAO;
 
     public List<Event> getEventsByTitle(String title, int pageSize, int pageNum) {
         return Utils.getItemsFromPages(eventDAO.getEventsByTitle(title), pageSize, pageNum);

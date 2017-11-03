@@ -1,6 +1,6 @@
 package com.epam.spring.service;
 
-import com.epam.spring.dao.interfaces.UserDAO;
+import com.epam.spring.dao.impl.StaticUserDao;
 import com.epam.spring.model.User;
 import com.epam.spring.utils.Utils;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class UserServiceImpl{
 
-    UserDAO userDAO;
+    StaticUserDao userDAO;
 
     public User getUserById(long userId) {
         return userDAO.getUserById(userId);
