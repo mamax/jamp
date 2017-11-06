@@ -13,6 +13,10 @@ public class TicketServiceImpl {
 
     StaticTicketDao ticketDao;
 
+    public TicketServiceImpl(StaticTicketDao ticketDao) {
+        this.ticketDao = ticketDao;
+    }
+
     public Ticket bookTicket(long userId, long eventId, int place, Ticket.Category category) {
 
         Ticket ticket = new TicketEntity.Builder().

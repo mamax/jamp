@@ -10,9 +10,15 @@ import java.util.List;
 
 public class BookingFacadeServiceImpl implements BookingFacade {
 
-    EventServiceImpl eventService;
-    UserServiceImpl userService;
-    TicketServiceImpl ticketService;
+    private EventServiceImpl eventService;
+    private UserServiceImpl userService;
+    private TicketServiceImpl ticketService;
+
+    public BookingFacadeServiceImpl(EventServiceImpl eventService, UserServiceImpl userService, TicketServiceImpl ticketService) {
+        this.eventService = eventService;
+        this.userService = userService;
+        this.ticketService = ticketService;
+    }
 
     @Override
     public Event getEventById(long eventId) {

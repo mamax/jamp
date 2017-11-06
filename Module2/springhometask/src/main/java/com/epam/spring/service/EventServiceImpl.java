@@ -11,6 +11,10 @@ public class EventServiceImpl {
 
     StaticEventDao eventDAO;
 
+    public EventServiceImpl(StaticEventDao eventDAO) {
+        this.eventDAO = eventDAO;
+    }
+
     public List<Event> getEventsByTitle(String title, int pageSize, int pageNum) {
         return Utils.getItemsFromPages(eventDAO.getEventsByTitle(title), pageSize, pageNum);
     }

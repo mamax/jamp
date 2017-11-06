@@ -9,6 +9,11 @@ import java.util.List;
 public class UserServiceImpl{
 
     StaticUserDao userDAO;
+    private long userId = 0;
+
+    public UserServiceImpl(StaticUserDao userDAO) {
+        this.userDAO = userDAO;
+    }
 
     public User getUserById(long userId) {
         return userDAO.getUserById(userId);
@@ -24,7 +29,9 @@ public class UserServiceImpl{
     }
 
     public User createUser(User userEntity) {
-        return userDAO.createUser(userEntity);
+        userEntity.setId(userId++);
+        userDAO.createUser(userEntity);
+        return userEntity;
     }
 
     public User updateUser(User userEntity) {
