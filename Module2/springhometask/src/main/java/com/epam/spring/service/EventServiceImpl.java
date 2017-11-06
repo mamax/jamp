@@ -10,6 +10,7 @@ import java.util.List;
 public class EventServiceImpl {
 
     StaticEventDao eventDAO;
+    private long eventId = 0;
 
     public EventServiceImpl(StaticEventDao eventDAO) {
         this.eventDAO = eventDAO;
@@ -24,7 +25,9 @@ public class EventServiceImpl {
     }
 
     public Event createEvent(Event eventEntity) {
-        return eventDAO.createEvent(eventEntity);
+        eventEntity.setId(eventId++);
+        eventDAO.createEvent(eventEntity);
+        return eventEntity;
     }
 
     public Event updateEvent(Event eventEntity) {
@@ -36,6 +39,6 @@ public class EventServiceImpl {
     }
 
     public Event getEventById(long eventId) {
-        return eventDAO.getEventById(eventId);
+         return eventDAO.getEventById(eventId);
     }
 }

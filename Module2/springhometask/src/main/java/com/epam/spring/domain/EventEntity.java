@@ -38,4 +38,10 @@ public class EventEntity implements Event {
 
     private Date dateTime;
 
+    public static Event createEvent(String title, Date dateTime) {
+        Event event = new EventEntity();
+        event.setTitle(title);
+        event.setDate(dateTime);
+        return event;
+    }
 }
