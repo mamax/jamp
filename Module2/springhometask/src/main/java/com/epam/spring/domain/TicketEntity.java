@@ -32,6 +32,16 @@ public class TicketEntity implements Ticket{
         this.category = category;
     }
 
+    public static Ticket createNewTicket(long ticketId, long userId, long eventId, int place, Category category) {
+        Ticket ticket = new TicketEntity();
+        ticket.setId(ticketId);
+        ticket.setPlace(place);
+        ticket.setEventId(eventId);
+        ticket.setUserId(userId);
+        ticket.setCategory(category);
+        return ticket;
+    }
+
     public static class Builder{
         private long ticketId;
         private long userId;
@@ -115,4 +125,27 @@ public class TicketEntity implements Ticket{
         this.place = place;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TicketEntity that = (TicketEntity) o;
+
+        if (ticketId != that.ticketId) return false;
+        if (getPlace() != that.getPlace()) return false;
+        if (getUserId() != that.getUserId()) return false;
+        if (getEventId() != that.getEventId()) return false;
+        return getCategory() == that.getCategory();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (ticketId ^ (ticketId >>> 32));
+        result = 31 * result + getPlace();
+        result = 31 * result + (int) (getUserId() ^ (getUserId() >>> 32));
+        result = 31 * result + (int) (getEventId() ^ (getEventId() >>> 32));
+        result = 31 * result + getCategory().hashCode();
+        return result;
+    }
 }

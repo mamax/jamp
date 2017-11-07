@@ -15,11 +15,14 @@ public class StaticTicketDao implements TicketDAO {
 
     @Autowired
     Repository repository;
+    private int ticketId = 0;
 
     @Override
     public Ticket createTicket(Ticket ticket) {
+        ticket.setId(ticketId++);
         repository.put(ticket.getId(), ticket);
-        return (Ticket) repository.getRepository().get(ticket.getId());
+        Ticket tempTicket = (Ticket) repository.getRepository().get(ticket.getId());
+        return tempTicket;
     }
 
     @Override
@@ -51,7 +54,7 @@ public class StaticTicketDao implements TicketDAO {
     @Override
     public boolean cancelTicket(long ticketId) {
         if (repository.getRepository().containsKey(ticketId)) {
-            repository.equals(ticketId);
+            repository.delete(ticketId);
             return true;
         }
         return false;
