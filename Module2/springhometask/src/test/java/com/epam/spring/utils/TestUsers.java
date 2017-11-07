@@ -6,24 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TestUsers extends CommonTest {
-
-    private List<User> users;
-
-    private void initListOfUsers(){
-        users = new ArrayList<>();
-        users.add(UserEntity.createUser("Max", "maksym.Mazurkevych@gmail.com"));
-        users.add(UserEntity.createUser("SomeUser", "SomeUser@gmail.com"));
-    }
-
-    private void initUsersFacade(){
-        for (User user : users){
-            facade.createUser(user);
-        }
-    }
 
     @Before
     public void init(){

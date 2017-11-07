@@ -6,27 +6,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.time.ZoneOffset;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 
 public class TestEvents extends CommonTest {
-
-    private ArrayList<Event> events;
-
-    private void initListOfEvents(){
-        events = new ArrayList<>();
-        events.add(EventEntity.createEvent("MaxEventTitle", Calendar.getInstance(TimeZone.getTimeZone(ZoneOffset.UTC)).getTime()));
-        events.add(EventEntity.createEvent("SomeEventTitle", Calendar.getInstance().getTime()));
-    }
-
-    private void initEventFacade(){
-        for (Event event : events){
-            facade.createEvent(event);
-        }
-    }
 
     @Before
     public void init(){
