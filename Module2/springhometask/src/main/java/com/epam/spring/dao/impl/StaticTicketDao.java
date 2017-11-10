@@ -42,7 +42,7 @@ public class StaticTicketDao implements TicketDAO {
     public List<Ticket> getBookedTickets(Event event) {
         List<Ticket> ticketList = new ArrayList<>();
         for (Map.Entry<Long, Object> entry : repository.getRepository().entrySet()){
-            Ticket ticket= (Ticket) entry.getValue();
+            Ticket ticket = (Ticket) entry.getValue();
             if (event.getId() == ticket.getEventId()){
                 ticketList.add(ticket);
             }

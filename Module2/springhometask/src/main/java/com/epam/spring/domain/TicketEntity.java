@@ -35,9 +35,9 @@ public class TicketEntity implements Ticket{
     public static Ticket createNewTicket(long ticketId, long userId, long eventId, int place, Category category) {
         Ticket ticket = new TicketEntity();
         ticket.setId(ticketId);
-        ticket.setPlace(place);
         ticket.setEventId(eventId);
         ticket.setUserId(userId);
+        ticket.setPlace(place);
         ticket.setCategory(category);
         return ticket;
     }
