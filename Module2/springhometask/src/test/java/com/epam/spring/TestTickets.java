@@ -1,8 +1,9 @@
-package com.epam.spring.utils;
+package com.epam.spring;
 
 import com.epam.spring.domain.TicketEntity;
 import com.epam.spring.model.Ticket;
 import com.epam.spring.repository.Repository;
+import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

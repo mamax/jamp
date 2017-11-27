@@ -1,7 +1,8 @@
-package com.epam.spring.utils;
+package com.epam.spring;
 
 import com.epam.spring.domain.EventEntity;
 import com.epam.spring.model.Event;
+import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
