@@ -3,10 +3,14 @@ package com.epam.spring;
 import com.epam.spring.domain.UserEntity;
 import com.epam.spring.model.User;
 import com.epam.spring.utils.CommonTest;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+@RunWith(SpringJUnit4ClassRunner.class)
 public class TestUsers extends CommonTest {
 
     @Before
@@ -17,25 +21,28 @@ public class TestUsers extends CommonTest {
 
     @Test
     public void testCreateUser(){
-        User user1 = users.get(0);
-        User user2 = facade.getUserById(0);
-        Assert.assertEquals(user1, user2);
+        Assert.assertEquals(users.size(), 2);
     }
 
     @Test
     public void testUpdateUser(){
         User user = UserEntity.createUser("updatedUser", "updatedUser@epam.com");
         user.setId(1);
-        facade.updateUser(user);
-        Assert.assertEquals(user.getName(), facade.getUserById(1).getName());
-        Assert.assertEquals(user.getEmail(), facade.getUserById(1).getEmail());
+        bookingFacade.updateUser(user);
+        Assert.assertEquals(user.getName(), bookingFacade.getUserById(1).getName());
+        Assert.assertEquals(user.getEmail(), bookingFacade.getUserById(1).getEmail());
     }
 
     @Test
     public void testDeleteUser(){
-        facade.deleteUser(1);
-        Assert.assertEquals(null, facade.getUserById(1));
+        bookingFacade.deleteUser(1);
+        Assert.assertEquals(null, bookingFacade.getUserById(1));
     }
 
+    @After
+    public void tearDown(){
+        repository.getRepository().remove(0);
+        repository.getRepository().remove(1);
+    }
 
 }

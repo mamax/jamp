@@ -2,11 +2,12 @@ package com.epam.spring.utils;
 
 import com.epam.spring.domain.EventEntity;
 import com.epam.spring.domain.UserEntity;
+import com.epam.spring.facade.BookingFacade;
 import com.epam.spring.model.Event;
 import com.epam.spring.model.User;
-import com.epam.spring.service.BookingFacadeServiceImpl;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.epam.spring.repository.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 
 import java.time.ZoneOffset;
 import java.util.ArrayList;
@@ -14,10 +15,15 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
+
+@ContextConfiguration(locations = {"classpath:spring-config.xml"})
 public class CommonTest {
 
-    public final ApplicationContext context = new ClassPathXmlApplicationContext("file:src/main/resources/spring-config.xml");
-    protected final BookingFacadeServiceImpl facade = (BookingFacadeServiceImpl) context.getBean("bookingService");
+    @Autowired
+    protected Repository repository;
+
+    @Autowired
+    protected BookingFacade bookingFacade;
 
     protected ArrayList<Event> events;
 
@@ -29,7 +35,7 @@ public class CommonTest {
 
     protected void initEventFacade(){
         for (Event event : events){
-            facade.createEvent(event);
+            bookingFacade.createEvent(event);
         }
     }
 
@@ -43,9 +49,10 @@ public class CommonTest {
 
     protected void initUsersFacade(){
         for (User user : users){
-            facade.createUser(user);
+            bookingFacade.createUser(user);
         }
     }
+
 
 
 }
