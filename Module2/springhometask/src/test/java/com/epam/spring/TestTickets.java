@@ -70,6 +70,11 @@ public class TestTickets extends CommonTest {
         Assert.assertEquals(tempSize-1, repository.getRepository().size());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testDeleteTicketWithWrongId() {
+        bookingFacade.deleteUser(-50);
+    }
+
     @After
     public void tearDown(){
         repository.getRepository().clear();

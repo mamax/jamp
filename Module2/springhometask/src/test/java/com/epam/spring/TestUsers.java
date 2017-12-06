@@ -39,6 +39,11 @@ public class TestUsers extends CommonTest {
         Assert.assertEquals(null, bookingFacade.getUserById(1));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testDeletingUserWithWrongId() {
+        bookingFacade.deleteUser(-50);
+    }
+
     @After
     public void tearDown(){
         repository.getRepository().remove(0);

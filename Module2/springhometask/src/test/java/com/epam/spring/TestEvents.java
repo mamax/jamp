@@ -41,6 +41,11 @@ public class TestEvents extends CommonTest {
         Assert.assertEquals(null, bookingFacade.getEventById(0));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testDeleteEventWithWrongId() {
+        bookingFacade.deleteEvent(-50);
+    }
+
     @After
     public void tearDown(){
         repository.getRepository().remove(0);
