@@ -20,7 +20,7 @@ public class Repository {
     }
 
     public Object get(Long key){
-        return repository.remove(key);
+        return repository.get(key);
     }
 
 }
