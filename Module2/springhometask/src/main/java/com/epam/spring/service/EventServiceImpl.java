@@ -11,10 +11,6 @@ import java.util.logging.Logger;
 
 public class EventServiceImpl {
 
-    public void setEventDAO(StaticEventDao eventDAO) {
-        this.eventDAO = eventDAO;
-    }
-
     StaticEventDao eventDAO;
     private long eventId = 0;
     private static final Logger LOG = Logger.getLogger(EventServiceImpl.class.getName());
