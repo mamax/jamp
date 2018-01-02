@@ -1,6 +1,6 @@
-package com.java.singleton;
+package com.epam.singleton;
 
-import static com.java.singleton.WebDriverSingleton.getInstance;
+import static com.epam.singleton.WebDriverSingleton.getInstance;
 
 public class WebDriverFactory {
 

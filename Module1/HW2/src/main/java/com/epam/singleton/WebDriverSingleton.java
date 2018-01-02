@@ -1,4 +1,4 @@
-package com.java.singleton;
+package com.epam.singleton;
 
 public class WebDriverSingleton {
 
