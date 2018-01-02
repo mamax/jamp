@@ -16,10 +16,8 @@ The project consists of next parts :
 (lives in `Module1/HW4` dir) - see corresponding [HW4 README](Module1/HW3/README.md) 
 
 ##HW5 - is creating Spring based module, which handles event tickets booking. 
-(lives in `Module2/springhometask` dir) - see corresponding [HW5 README](Module2/springhometask/README.md) 
+(lives in `Module2/springhometask` dir)  
 
-##HW6 - Based on the codebase created during Hometask 1, instead of Spring JDBC, use NoSQL solution of your choice and corresponding Spring Data module:. 
-(lives in `Module2/springhometask` dir) - see corresponding [HW5 README](Module2/springhometask/README.md) 
 
 
  
