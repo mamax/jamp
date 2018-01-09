@@ -18,6 +18,7 @@
 5. Implemented methods with Java8ParallelAggregator.
 6. Added performance unit tests.
 7. Added aggregator unit tests.
+8. Fixed assertion method.
 
 ##How to run tests
 
