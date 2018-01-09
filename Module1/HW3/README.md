@@ -1,3 +1,16 @@
+# Home Work #3
+    Implement simple interface, using Java 7 and Java 8 approaches. 
+    
+    Home task in details
+    In attachments you may see ‘task.zip’ archive. Unzip it and you will find a simple Java application inside. 
+    Your main goal is to implement Aggregator interface. There are already four classes implementing the interface, but all their methods throw UnsupportedOperationException:
+    
+    1.	Java7Aggregator – should use Java 7 approach to solve the problem (no packages from Java 8)
+    2.	Java8Aggregator – should use Java 8 Stream API to solve the problem
+    3.	Java8ParallelAggregator – should use parallel streams from Java 8 Stream API to solve the problem
+    4.	Java7ParallelAggregator -  use Java 7 approach to do parallel tasks (e.g. you may use fork/join framework) to solve the problem
+ 
+
 How to run tests
 
 - Use 'com.epam.cdp.m2.hw2.aggregator.suits' package to run test by implementation;
