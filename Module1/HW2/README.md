@@ -10,5 +10,5 @@
  - created static factory `UserFactory` and wrote unit tests `UserTest`.
 
 
-### Inner classes
+###3. Inner classes
 - created 3 inner classes & wrote unit test `TestInnerClass`.
