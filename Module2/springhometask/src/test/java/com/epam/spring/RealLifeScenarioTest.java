@@ -8,13 +8,10 @@ import com.epam.spring.model.User;
 import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-@RunWith(SpringJUnit4ClassRunner.class)
 public class RealLifeScenarioTest extends CommonTest {
 
     private ArrayList<Event> eventList = new ArrayList<>();
@@ -23,10 +20,10 @@ public class RealLifeScenarioTest extends CommonTest {
     public void testSomeRealScenario(){
 
         User testUser = UserEntity.createUser("updatedUser", "updatedUser@epam.com");
-        bookingFacade.createUser(testUser);
+        facade.createUser(testUser);
 
         User testUser1 = UserEntity.createUser("maksym_mazurkevych", "Maksym_Mazurkevych@epam.com");
-        bookingFacade.createUser(testUser1);
+        facade.createUser(testUser1);
 
         Event event = EventEntity.createEvent("RealEventScenario", new Date());
         eventList.add(event);
@@ -35,21 +32,21 @@ public class RealLifeScenarioTest extends CommonTest {
         eventList.add(event1);
 
         for (Event eve : eventList) {
-            bookingFacade.createEvent(eve);
+            facade.createEvent(eve);
         }
 
-        bookingFacade.bookTicket(testUser.getId(), event.getId(), 10, Ticket.Category.BAR);
-        bookingFacade.bookTicket(testUser1.getId(), event.getId(), 11, Ticket.Category.BAR);
+        facade.bookTicket(testUser.getId(), event.getId(), 10, Ticket.Category.BAR);
+        facade.bookTicket(testUser1.getId(), event.getId(), 11, Ticket.Category.BAR);
 
-        bookingFacade.bookTicket(testUser.getId(), event1.getId(), 111, Ticket.Category.PREMIUM);
-        bookingFacade.bookTicket(testUser1.getId(), event1.getId(), 112, Ticket.Category.PREMIUM);
+        facade.bookTicket(testUser.getId(), event1.getId(), 111, Ticket.Category.PREMIUM);
+        facade.bookTicket(testUser1.getId(), event1.getId(), 112, Ticket.Category.PREMIUM);
 
-        Assert.assertEquals(bookingFacade.getBookedTickets(testUser, 5, 1).size(), 2);
-        Assert.assertEquals(bookingFacade.getBookedTickets(testUser1, 5, 1).size(), 2);
+        Assert.assertEquals(facade.getBookedTickets(testUser, 5, 1).size(), 2);
+        Assert.assertEquals(facade.getBookedTickets(testUser1, 5, 1).size(), 2);
 
-        bookingFacade.cancelTicket(3);
+        facade.cancelTicket(3);
 
-        Assert.assertEquals(bookingFacade.getBookedTickets(testUser1, 5, 1).size(), 1);
+        Assert.assertEquals(facade.getBookedTickets(testUser1, 5, 1).size(), 1);
 
     }
 
