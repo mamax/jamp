@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
@@ -10,17 +11,14 @@
 
     <context:component-scan base-package="com.epam.spring"/>
 
-    <bean id="ticketService" class="com.epam.spring.service.TicketServiceImpl">
-        <constructor-arg ref="ticketDao"/>
-    </bean>
+    <bean id="ticketService" class="com.epam.spring.service.TicketServiceImpl"
+        p:ticketDao-ref="ticketDao"/>
 
-    <bean id="userService" class="com.epam.spring.service.UserServiceImpl">
-        <constructor-arg ref="userDao"/>
-    </bean>
+    <bean id="userService" class="com.epam.spring.service.UserServiceImpl"
+        p:userDAO-ref="userDao"/>
 
-    <bean id="eventService" class="com.epam.spring.service.EventServiceImpl">
-        <constructor-arg ref="eventDao"/>
-    </bean>
+    <bean id="eventService" class="com.epam.spring.service.EventServiceImpl"
+        p:eventDAO-ref="eventDao"/>
 
     <bean id="bookingService" class="com.epam.spring.service.BookingFacadeServiceImpl">
         <constructor-arg ref="ticketService"/>
