@@ -13,6 +13,10 @@ import java.util.logging.Logger;
 
 public class TicketServiceImpl {
 
+    public TicketServiceImpl() {
+
+    }
+
     public void setTicketDao(StaticTicketDao ticketDao) {
         this.ticketDao = ticketDao;
     }

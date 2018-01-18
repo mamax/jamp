@@ -10,6 +10,10 @@ import java.util.logging.Logger;
 
 public class UserServiceImpl{
 
+    public UserServiceImpl() {
+
+    }
+
     public void setUserDAO(StaticUserDao userDAO) {
         this.userDAO = userDAO;
     }

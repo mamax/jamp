@@ -11,6 +11,9 @@ import java.util.logging.Logger;
 
 public class EventServiceImpl {
 
+    public EventServiceImpl() {
+    }
+
     public void setEventDAO(StaticEventDao eventDAO) {
         this.eventDAO = eventDAO;
     }
