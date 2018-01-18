@@ -13,6 +13,13 @@ import java.util.logging.Logger;
 
 public class TicketServiceImpl {
 
+    public TicketServiceImpl() {
+    }
+
+    public void setTicketDao(StaticTicketDao ticketDao) {
+        this.ticketDao = ticketDao;
+    }
+
     StaticTicketDao ticketDao;
     private static final Logger LOG = Logger.getLogger(TicketServiceImpl.class.getName());
 
