@@ -5,6 +5,7 @@ import com.epam.spring.model.Event;
 import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Date;

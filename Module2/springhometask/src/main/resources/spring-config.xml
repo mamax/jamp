@@ -9,6 +9,11 @@
     <context:annotation-config />
 
     <context:component-scan base-package="com.epam.spring"/>
+    <context:property-placeholder location="classpath:my.properties"/>
+
+    <bean class="com.epam.spring.storage.InitStorage"/>
+
+    <bean id="repository" class="com.epam.spring.repository.Repository"/>
 
     <bean id="ticketService" class="com.epam.spring.service.TicketServiceImpl">
         <constructor-arg ref="ticketDao"/>
@@ -31,7 +36,5 @@
     <bean id="userDao" class="com.epam.spring.dao.impl.StaticUserDao"/>
     <bean id="ticketDao" class="com.epam.spring.dao.impl.StaticTicketDao"/>
     <bean id="eventDao" class="com.epam.spring.dao.impl.StaticEventDao"/>
-
-    <bean id="repository" class="com.epam.spring.repository.Repository"/>
 
 </beans>

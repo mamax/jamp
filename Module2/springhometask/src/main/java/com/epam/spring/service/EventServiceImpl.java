@@ -49,7 +49,7 @@ public class EventServiceImpl {
             LOG.log(Level.WARNING, String.format("Event is not valid"));
             throw new IllegalArgumentException();
         }
-        eventEntity.setId(eventId++);
+        eventEntity.setId(eventId);
         eventDAO.createEvent(eventEntity);
         LOG.log(Level.INFO, "Created event:" + eventEntity);
         return eventEntity;

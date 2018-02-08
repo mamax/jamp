@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import static com.epam.spring.namespace.Constants.EVENT;
+
 public class StaticEventDao {
 
     @Autowired
@@ -16,8 +18,8 @@ public class StaticEventDao {
 
     public Event getEventById(long eventId) {
         Event tempEvent = null;
-        for (Map.Entry<Long, Object> entry : repository.getRepository().entrySet() ){
-            if (entry.getKey().equals(eventId)){
+        for (Map.Entry<String, Object> entry : repository.getRepository().entrySet() ){
+            if (entry.getKey().contains(EVENT + Long.toString(eventId))){
                 tempEvent = (Event) entry.getValue();
                 break;
             }
@@ -27,7 +29,7 @@ public class StaticEventDao {
 
     public List<Event> getEventsByTitle(String title) {
         List<Event> events = new ArrayList<>();
-        for (Map.Entry<Long, Object> entry : repository.getRepository().entrySet()){
+        for (Map.Entry<String, Object> entry : repository.getRepository().entrySet()){
             if (entry.getValue().toString().contains(title)){
                 events.add((Event) entry.getValue());
             }
@@ -37,7 +39,7 @@ public class StaticEventDao {
 
     public List<Event> getEventsForDay(Date day) {
         List<Event> events = new ArrayList<>();
-        for (Map.Entry<Long, Object> entry : repository.getRepository().entrySet()){
+        for (Map.Entry<String, Object> entry : repository.getRepository().entrySet()){
             Event event = (Event) entry.getValue();
             if (event.getDate().equals(day)){
                 events.add(event);
@@ -47,26 +49,26 @@ public class StaticEventDao {
     }
 
     public void createEvent(Event eventEntity) {
-        repository.put(eventEntity.getId(), eventEntity);
+        repository.put(EVENT + eventEntity.getId(), eventEntity);
     }
 
     public Event updateEvent(Event eventEntity) {
         Event tempEvent = null;
-        if (repository.getRepository().containsKey(eventEntity.getId())){
-            tempEvent = (Event) repository.get(eventEntity.getId());
+        if (repository.getRepository().containsKey(EVENT + eventEntity.getId())){
+            tempEvent = (Event) repository.get(EVENT + eventEntity.getId());
 
             tempEvent.setDate(eventEntity.getDate());
 
             tempEvent.setTitle(eventEntity.getTitle());
-            repository.put(eventEntity.getId(), tempEvent);
+            repository.put(EVENT + eventEntity.getId(), tempEvent);
         }
 
         return tempEvent;
     }
 
     public boolean deleteEvent(long eventId) {
-        if (repository.getRepository().containsKey(eventId)){
-            repository.delete(eventId);
+        if (repository.getRepository().containsKey(EVENT + Long.toString(eventId))){
+            repository.delete(EVENT + Long.toString(eventId));
             return true;
         }
         return false;

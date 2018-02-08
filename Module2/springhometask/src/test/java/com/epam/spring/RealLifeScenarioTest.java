@@ -15,15 +15,20 @@ import java.util.Date;
 public class RealLifeScenarioTest extends CommonTest {
 
     private ArrayList<Event> eventList = new ArrayList<>();
+    private ArrayList<User> userList = new ArrayList<>();
 
     @Test
     public void testSomeRealScenario(){
 
         User testUser = UserEntity.createUser("updatedUser", "updatedUser@epam.com");
-        facade.createUser(testUser);
+        userList.add(testUser);
 
         User testUser1 = UserEntity.createUser("maksym_mazurkevych", "Maksym_Mazurkevych@epam.com");
-        facade.createUser(testUser1);
+        userList.add(testUser1);
+
+        for (User eve : userList) {
+            facade.createUser(eve);
+        }
 
         Event event = EventEntity.createEvent("RealEventScenario", new Date());
         eventList.add(event);

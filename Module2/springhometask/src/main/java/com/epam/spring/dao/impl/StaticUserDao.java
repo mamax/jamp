@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static com.epam.spring.namespace.Constants.USER;
+
+
 public class StaticUserDao  {
 
     @Autowired
@@ -15,9 +18,9 @@ public class StaticUserDao  {
 
     public User getUserById(long userId) {
         User user = null;
-        for (Map.Entry<Long, Object> entry : repository.getRepository().entrySet()) {
-            if (entry.getKey().equals(userId)) {
-                user = (User) repository.getRepository().get(userId);
+        for (Map.Entry<String, Object> entry : repository.getRepository().entrySet()) {
+            if (entry.getKey().contains(USER + Long.toString(userId))) {
+                user = (User) repository.getRepository().get(USER + Long.toString(userId));
             }
         }
 
@@ -25,7 +28,7 @@ public class StaticUserDao  {
     }
 
     public User getUserByEmail(String email) {
-        for (Map.Entry<Long, Object> entry : repository.getRepository().entrySet()){
+        for (Map.Entry<String, Object> entry : repository.getRepository().entrySet()){
             User user = (User) entry.getValue();
             if (user.getEmail().equals(email)){
                 return user;
@@ -36,7 +39,7 @@ public class StaticUserDao  {
 
     public List<User> getUsersByName(String name) {
         List<User> listUser = new ArrayList<>();
-        for (Map.Entry<Long, Object> entry : repository.getRepository().entrySet()){
+        for (Map.Entry<String, Object> entry : repository.getRepository().entrySet()){
             User user = (User) entry.getValue();
            if (user.getName().contains(name)){
                listUser.add(user);
@@ -47,27 +50,27 @@ public class StaticUserDao  {
     }
 
     public void createUser(User userEntity) {
-        repository.put(userEntity.getId(), userEntity);
+        repository.put(USER + userEntity.getId(), userEntity);
     }
 
     public User updateUser(User userEntity) {
         User updatedUser = null;
 
-        if (repository.getRepository().containsKey(userEntity.getId())){
-            updatedUser = (User) repository.get(userEntity.getId());
+        if (repository.getRepository().containsKey(USER + userEntity.getId())){
+            updatedUser = (User) repository.get(USER + userEntity.getId());
 
             updatedUser.setName(userEntity.getName());
 
             updatedUser.setEmail(userEntity.getEmail());
 
-            repository.put(userEntity.getId(), userEntity);
+            repository.put(USER + userEntity.getId(), userEntity);
         }
         return updatedUser;
     }
 
     public boolean deleteUser(long userId) {
-        if (repository.getRepository().containsKey(userId)){
-            repository.delete(userId);
+        if (repository.getRepository().containsKey(USER + Long.toString(userId))){
+            repository.delete(USER + Long.toString(userId));
             return true;
         }
         return false;
