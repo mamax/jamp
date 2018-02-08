@@ -45,5 +45,8 @@
 14. Added proper logging.
 15. Added TestRealScenario.
 16. Extra task : Use "p" namespace to define properties.
+17. Implemented getting data from json files.
+18. Changing repository hashMap in order to add prefix to key.
+19. Fix unit tests -> added prefix in getById, update and create methods.
 
 
