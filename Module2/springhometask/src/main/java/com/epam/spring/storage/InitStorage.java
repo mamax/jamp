@@ -12,16 +12,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.util.ReflectionUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InitStorage implements BeanPostProcessor {
+import static com.epam.spring.namespace.Constants.EVENT;
+import static com.epam.spring.namespace.Constants.USER;
 
-    private static final String USER = "User";
-    private static final String EVENT = "Event";
+public class InitStorage implements BeanPostProcessor {
 
     Logger log = LoggerFactory.getLogger(InitStorage.class);
 
@@ -35,9 +37,9 @@ public class InitStorage implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String s) throws BeansException {
         log.info("Before Initialization of bean {}", bean.getClass().getSimpleName());
-        Map<String, Object> storage = new HashMap<>();
+        Map<String, Object> repositoryMap = new HashMap<>();
 
-        if(bean.getClass().getSimpleName().equalsIgnoreCase("repository")){
+        if(bean.getClass().getSimpleName().equalsIgnoreCase("Repository")){
             try {
                 DataParser dataParser = new DataParser();
                 usersJsonNode = dataParser.parseJsonNode(usersFile);
@@ -47,19 +49,25 @@ public class InitStorage implements BeanPostProcessor {
 
                 for (UserEntity userEntity : astWr.getUsers()){
                     User user = UserEntity.createUser(userEntity.getId(), userEntity.getName(), userEntity.getEmail());
-                    storage.put(USER + user.getId(), user);
+                    repositoryMap.put(USER + user.getId(), user);
                 }
 
                 EventWrapper eventWrapper = dataParser.getWrapper(eventsJsonNode, EventWrapper.class);
 
                 for(EventEntity eventEntity : eventWrapper.getEvents()){
                     Event event = EventEntity.createEvent(eventEntity.getId(), eventEntity.getTitle(), eventEntity.getDate());
-                    storage.put(EVENT + event.getId(), event);
+                    repositoryMap.put(EVENT + event.getId(), event);
                 }
+
+                Field repositoryFiled = bean.getClass().getDeclaredField("repository");
+                repositoryFiled.setAccessible(true);
+                ReflectionUtils.setField(repositoryFiled, bean, repositoryMap);
 
             } catch (FileNotFoundException e){
                 log.error(e.getMessage(), e);
 
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
             }
         }
         return bean;

@@ -5,21 +5,21 @@ import java.util.Map;
 
 public class Repository {
 
-    public Map<Long, Object> getRepository() {
+    public Map<String, Object> getRepository() {
         return repository;
     }
 
-    Map<Long, Object> repository = new HashMap<>();
+    Map<String, Object> repository = new HashMap<>();
 
-    public void put(Long key, Object object){
+    public void put(String key, Object object){
         repository.put(key, object);
     }
 
-    public void delete(Long key){
+    public void delete(String key){
         repository.remove(key);
     }
 
-    public Object get(Long key){
+    public Object get(String key){
         return repository.remove(key);
     }
 

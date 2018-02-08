@@ -6,21 +6,21 @@ import java.util.Date;
 
 public class EventEntity implements Event {
 
-    private Long eventId;
+    private Long id;
     private String title;
-    private Date dateTime;
+    private Date date;
 
     public EventEntity() {
     }
 
     @Override
     public long getId() {
-        return eventId;
+        return id;
     }
 
     @Override
     public void setId(long id) {
-        this.eventId=id;
+        this.id = id;
     }
 
     public String getTitle() {
@@ -32,11 +32,11 @@ public class EventEntity implements Event {
     }
 
     public Date getDate() {
-        return dateTime;
+        return date;
     }
 
     public void setDate(Date date) {
-        this.dateTime = date;
+        this.date = date;
     }
 
     public static Event createEvent(String title, Date dateTime) {

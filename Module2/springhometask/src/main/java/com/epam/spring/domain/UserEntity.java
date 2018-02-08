@@ -4,7 +4,7 @@ import com.epam.spring.model.User;
 
 public class UserEntity implements User {
 
-    private Long userId;
+    private Long id;
     private String name;
     private String email;
 
@@ -13,12 +13,12 @@ public class UserEntity implements User {
 
     @Override
     public long getId() {
-        return userId;
+        return id;
     }
 
     @Override
     public void setId(long id) {
-        this.userId=id;
+        this.id =id;
     }
 
     public String getName() {

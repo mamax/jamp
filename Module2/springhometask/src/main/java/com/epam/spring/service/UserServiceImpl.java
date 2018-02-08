@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 public class UserServiceImpl{
 
     public UserServiceImpl() {
-
     }
 
     public void setUserDAO(StaticUserDao userDAO) {
@@ -28,16 +27,16 @@ public class UserServiceImpl{
 
     public User getUserById(long userId) {
         if (!Utils.isUserIdIsValid(userId)){
-            LOG.log(Level.WARNING, String.format("userId is not valid"));
+            LOG.log(Level.WARNING, "UserId is not valid {}", userId);
             throw new IllegalArgumentException();
         }
-        LOG.log(Level.INFO, "Get user by id :"+ userId);
+        LOG.log(Level.INFO, "Get user by id :{}", userId);
         return userDAO.getUserById(userId);
     }
 
     public User getUserByEmail(String email) {
         if (!Utils.isEmailIsValid(email)){
-            LOG.log(Level.WARNING, String.format("email is not valid"));
+            LOG.log(Level.WARNING, "Email is not valid {}", email);
             throw new IllegalArgumentException();
         }
         LOG.log(Level.INFO, "Get user by email" + email);
@@ -59,7 +58,7 @@ public class UserServiceImpl{
             LOG.log(Level.WARNING, String.format("userEntity is not valid"));
             throw new IllegalArgumentException();
         }
-        userEntity.setId(userId++);
+        userEntity.setId(userId);
         userDAO.createUser(userEntity);
         LOG.log(Level.INFO, "Created user" + userEntity);
         return userEntity;
