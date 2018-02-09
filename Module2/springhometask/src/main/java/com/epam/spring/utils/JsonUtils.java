@@ -4,25 +4,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-public class DataParser {
+public class JsonUtils {
 
-    public DataParser() {
-    }
-
-    public Map<String, Object> fetchUsersData() {
-        Map<String, Object> storage = new HashMap<>();
-
-        return storage;
-    }
-
-    public Map<String, Object> fetchEventsData() {
-        Map<String, Object> storage = new HashMap<>();
-
-
-        return storage;
+    public JsonUtils() {
     }
 
     public JsonNode parseJsonNode(File file) {

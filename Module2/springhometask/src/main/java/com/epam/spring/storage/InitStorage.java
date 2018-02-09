@@ -6,7 +6,7 @@ import com.epam.spring.domain.wrapper.EventWrapper;
 import com.epam.spring.domain.wrapper.UserWrapper;
 import com.epam.spring.model.Event;
 import com.epam.spring.model.User;
-import com.epam.spring.utils.DataParser;
+import com.epam.spring.utils.JsonUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +15,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.util.ReflectionUtils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,18 +40,18 @@ public class InitStorage implements BeanPostProcessor {
 
         if(bean.getClass().getSimpleName().equalsIgnoreCase("Repository")){
             try {
-                DataParser dataParser = new DataParser();
-                usersJsonNode = dataParser.parseJsonNode(usersFile);
-                eventsJsonNode = dataParser.parseJsonNode(eventsFile);
+                JsonUtils jsonUtils = new JsonUtils();
+                usersJsonNode = jsonUtils.parseJsonNode(usersFile);
+                eventsJsonNode = jsonUtils.parseJsonNode(eventsFile);
 
-                UserWrapper astWr = dataParser.getWrapper(usersJsonNode, UserWrapper.class);
+                UserWrapper astWr = jsonUtils.getWrapper(usersJsonNode, UserWrapper.class);
 
                 for (UserEntity userEntity : astWr.getUsers()){
                     User user = UserEntity.createUser(userEntity.getId(), userEntity.getName(), userEntity.getEmail());
                     repositoryMap.put(USER + user.getId(), user);
                 }
 
-                EventWrapper eventWrapper = dataParser.getWrapper(eventsJsonNode, EventWrapper.class);
+                EventWrapper eventWrapper = jsonUtils.getWrapper(eventsJsonNode, EventWrapper.class);
 
                 for(EventEntity eventEntity : eventWrapper.getEvents()){
                     Event event = EventEntity.createEvent(eventEntity.getId(), eventEntity.getTitle(), eventEntity.getDate());
@@ -62,9 +61,6 @@ public class InitStorage implements BeanPostProcessor {
                 Field repositoryFiled = bean.getClass().getDeclaredField("repository");
                 repositoryFiled.setAccessible(true);
                 ReflectionUtils.setField(repositoryFiled, bean, repositoryMap);
-
-            } catch (FileNotFoundException e){
-                log.error(e.getMessage(), e);
 
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();
