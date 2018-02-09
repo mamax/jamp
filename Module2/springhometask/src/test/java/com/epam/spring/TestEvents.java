@@ -5,7 +5,6 @@ import com.epam.spring.model.Event;
 import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Date;
@@ -21,7 +20,7 @@ public class TestEvents extends CommonTest {
     @Test
     public void testCreateEvent(){
         Event event1 = events.get(0);
-        Event event2 = facade.getEventById(0);
+        Event event2 = bookingService.getEventById(0);
         Assert.assertEquals(event1, event2);
     }
 
@@ -29,14 +28,14 @@ public class TestEvents extends CommonTest {
     public void testUpdateEvent(){
         Event eventExample = EventEntity.createEvent("updatedEventTitle", new Date(2017, 12, 13));
         eventExample.setId(1);
-        facade.updateEvent(eventExample);
-        Assert.assertEquals(eventExample.getTitle(), facade.getEventById(1).getTitle());
-        Assert.assertEquals(eventExample.getDate(), facade.getEventById(1).getDate());
+        bookingService.updateEvent(eventExample);
+        Assert.assertEquals(eventExample.getTitle(), bookingService.getEventById(1).getTitle());
+        Assert.assertEquals(eventExample.getDate(), bookingService.getEventById(1).getDate());
     }
 
     @Test
     public void testDeleteEvent(){
-        facade.deleteEvent(1);
-        Assert.assertEquals(null, facade.getEventById(1));
+        bookingService.deleteEvent(1);
+        Assert.assertEquals(null, bookingService.getEventById(1));
     }
 }

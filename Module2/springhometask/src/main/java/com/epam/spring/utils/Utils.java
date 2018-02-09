@@ -1,5 +1,6 @@
 package com.epam.spring.utils;
 
+import com.epam.spring.domain.UserAccountEntity;
 import com.epam.spring.model.Event;
 import com.epam.spring.model.Ticket;
 import com.epam.spring.model.User;
@@ -86,5 +87,9 @@ public class Utils {
 
     public static boolean isTicketIdIsValid(long ticketId) {
         return ticketId >= 0;
+    }
+
+    public static boolean isUserAccountValid(UserAccountEntity userAccount) {
+        return isUserIdIsValid(userAccount.getId()) && userAccount!=null;
     }
 }

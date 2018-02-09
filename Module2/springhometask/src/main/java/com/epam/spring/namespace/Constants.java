@@ -5,5 +5,6 @@ public class Constants {
     public static final String USER = "User";
     public static final String EVENT = "Event";
     public static final String TICKET = "Ticket";
+    public static final String USERACCOUNT = "UserAccount";
 
 }

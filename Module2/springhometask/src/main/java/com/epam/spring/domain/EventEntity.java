@@ -9,6 +9,7 @@ public class EventEntity implements Event {
     private Long id;
     private String title;
     private Date date;
+    private int ticketPrice;
 
     public EventEntity() {
     }
@@ -38,6 +39,15 @@ public class EventEntity implements Event {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public int getTicketPrice() {
+        return ticketPrice;
+    }
+
+    public void setTicketPrice(int ticketPrice) {
+        this.ticketPrice = ticketPrice;
+    }
+
 
     public static Event createEvent(String title, Date dateTime) {
         Event event = new EventEntity();
