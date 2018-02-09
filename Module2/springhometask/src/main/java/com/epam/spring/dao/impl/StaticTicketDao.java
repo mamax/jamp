@@ -23,7 +23,7 @@ public class StaticTicketDao implements TicketDAO {
     public Ticket createTicket(Ticket ticket) {
         ticket.setId(ticketId++);
         repository.put(TICKET+ticket.getId(), ticket);
-        Ticket tempTicket = (Ticket) repository.getRepository().get(ticket.getId());
+        Ticket tempTicket = (Ticket) repository.getRepository().get(TICKET+ticket.getId());
         return tempTicket;
     }
 
@@ -31,9 +31,11 @@ public class StaticTicketDao implements TicketDAO {
     public List<Ticket> getBookedTickets(User user) {
         List<Ticket> ticketList = new ArrayList<>();
         for (Map.Entry<String, Object> entry :  repository.getRepository().entrySet()){
-            Ticket ticket = (Ticket) entry.getValue();
-            if (user.getId() == ticket.getUserId()){
-                ticketList.add(ticket);
+            if (entry.getKey().startsWith(TICKET)) {
+                Ticket ticket = (Ticket) entry.getValue();
+                if (user.getId() == ticket.getUserId()) {
+                    ticketList.add(ticket);
+                }
             }
         }
 
@@ -44,9 +46,11 @@ public class StaticTicketDao implements TicketDAO {
     public List<Ticket> getBookedTickets(Event event) {
         List<Ticket> ticketList = new ArrayList<>();
         for (Map.Entry<String, Object> entry : repository.getRepository().entrySet()){
-            Ticket ticket = (Ticket) entry.getValue();
-            if (event.getId() == ticket.getEventId()){
-                ticketList.add(ticket);
+            if (entry.getKey().startsWith(TICKET)) {
+                Ticket ticket = (Ticket) entry.getValue();
+                if (event.getId() == ticket.getEventId()) {
+                    ticketList.add(ticket);
+                }
             }
         }
 
@@ -55,7 +59,7 @@ public class StaticTicketDao implements TicketDAO {
 
     @Override
     public boolean cancelTicket(long ticketId) {
-        if (repository.getRepository().containsKey(ticketId)) {
+        if (repository.getRepository().containsKey(TICKET + ticketId)) {
             repository.delete(TICKET + ticketId);
             return true;
         }

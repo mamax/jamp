@@ -60,7 +60,7 @@ public class UserServiceImpl{
         }
         userEntity.setId(userId);
         userDAO.createUser(userEntity);
-        LOG.log(Level.INFO, "Created user" + userEntity);
+        LOG.log(Level.INFO, "Created user: " + userEntity);
         return userEntity;
     }
 

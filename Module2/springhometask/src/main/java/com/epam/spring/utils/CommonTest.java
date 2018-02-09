@@ -16,7 +16,7 @@ public class CommonTest {
 
     public final ApplicationContext context = new ClassPathXmlApplicationContext("file:src/main/resources/spring-config.xml");
     protected final BookingFacadeServiceImpl facade = (BookingFacadeServiceImpl) context.getBean("bookingService");
-    private final Repository repository = (Repository) context.getBean("repository");
+    protected final Repository repository = (Repository) context.getBean("repository");
 
     protected List<Event> events = new ArrayList<>();
     protected List<User> users = new ArrayList<>();
