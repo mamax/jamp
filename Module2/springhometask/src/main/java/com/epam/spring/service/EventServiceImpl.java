@@ -51,7 +51,7 @@ public class EventServiceImpl {
         }
         eventEntity.setId(eventId);
         eventDAO.createEvent(eventEntity);
-        LOG.log(Level.INFO, "Created event:" + eventEntity);
+        LOG.log(Level.INFO, "Created event: " + eventEntity);
         return eventEntity;
     }
 

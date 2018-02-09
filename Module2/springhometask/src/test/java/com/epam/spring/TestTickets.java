@@ -2,7 +2,6 @@ package com.epam.spring;
 
 import com.epam.spring.domain.TicketEntity;
 import com.epam.spring.model.Ticket;
-import com.epam.spring.repository.Repository;
 import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,8 +12,7 @@ import java.util.List;
 
 public class TestTickets extends CommonTest {
 
-    List<Ticket> ticketList;
-    private Repository repository = (Repository) context.getBean("repository");
+    List<Ticket> ticketList = new ArrayList<>();
 
     @Before
     public void init(){
@@ -27,18 +25,17 @@ public class TestTickets extends CommonTest {
     }
 
     private void initListOfTickets() {
-        ticketList = new ArrayList<>();
         ticketList.add(TicketEntity.createNewTicket(0, 0, 1,1, Ticket.Category.STANDARD));
         ticketList.add(TicketEntity.createNewTicket(1, 0, 0,10, Ticket.Category.PREMIUM));
         ticketList.add(TicketEntity.createNewTicket(2, 1, 1,13, Ticket.Category.BAR));
-        ticketList.add(TicketEntity.createNewTicket(3, 1, 1,18, Ticket.Category.BAR));
+        ticketList.add(TicketEntity.createNewTicket(3, 1, 0,18, Ticket.Category.BAR));
     }
 
     private void bookTicketsFacade() {
         facade.bookTicket(0, 1,1, Ticket.Category.STANDARD);
         facade.bookTicket(0, 0,10, Ticket.Category.PREMIUM);
         facade.bookTicket(1, 1,13, Ticket.Category.BAR);
-        facade.bookTicket(1, 0,8, Ticket.Category.BAR);
+        facade.bookTicket(1, 0,18, Ticket.Category.BAR);
     }
 
     @Test
@@ -49,11 +46,11 @@ public class TestTickets extends CommonTest {
 
     @Test
     public void testCancelTicket(){
-        long tempSize = repository.getRepository().size();
+        int tempSize = repository.getRepository().size();
         facade.cancelTicket(1);
-        repository.getRepository().size();
+        int currentRepositorySize = repository.getRepository().size();
 
-        Assert.assertEquals(tempSize-1, repository.getRepository().size());
+        Assert.assertEquals(tempSize-1, currentRepositorySize);
     }
 
     @Test
