@@ -15,7 +15,7 @@ import static com.epam.spring.namespace.Constants.USER;
 public class CommonTest {
 
     public final ApplicationContext context = new ClassPathXmlApplicationContext("file:src/main/resources/spring-config.xml");
-    protected final BookingFacadeServiceImpl facade = (BookingFacadeServiceImpl) context.getBean("bookingService");
+    protected final BookingFacadeServiceImpl bookingService = (BookingFacadeServiceImpl) context.getBean("bookingService");
     protected final Repository repository = (Repository) context.getBean("repository");
 
     protected List<Event> events = new ArrayList<>();
@@ -33,7 +33,7 @@ public class CommonTest {
 
     protected void initEventFacade(){
         for (Event event : events){
-            facade.createEvent(event);
+            bookingService.createEvent(event);
         }
 
         Collections.sort(events, UtilsComparator.eventsComparator);
@@ -52,7 +52,7 @@ public class CommonTest {
 
     protected void initUsersFacade(){
         for (User user : users){
-            facade.createUser(user);
+            bookingService.createUser(user);
         }
 
         Collections.sort(users, UtilsComparator.usersComparator);
