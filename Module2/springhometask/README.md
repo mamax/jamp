@@ -51,6 +51,7 @@
 20. Added new entity to the application - UserAccount, added UserAccountService, Added UserAccountDao.
 21. Added UserAccount bean.
 22. Create database schema for storing application entities. Provide SQL script with schema creation DDL for MYSQL.
+23. Added UserAccount interface. Added empty RowMapper for every model. 
 
 
 
