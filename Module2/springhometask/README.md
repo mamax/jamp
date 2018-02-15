@@ -48,5 +48,9 @@
 17. Implemented getting data from json files.
 18. Changing repository hashMap in order to add prefix to key.
 19. Fix unit tests -> added prefix in getById, update and create methods.
+20. Added new entity to the application - UserAccount, added UserAccountService, Added UserAccountDao.
+21. Added UserAccount bean.
+22. Create database schema for storing application entities. Provide SQL script with schema creation DDL for MYSQL.
+
 
 
