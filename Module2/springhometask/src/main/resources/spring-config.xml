@@ -35,6 +35,7 @@
         <constructor-arg ref="ticketService"/>
         <constructor-arg ref="eventService"/>
         <constructor-arg ref="userService"/>
+        <constructor-arg ref="userAccountService"/>
     </bean>
 
     <bean id="userDao" class="com.epam.spring.dao.impl.StaticUserDao"/>
