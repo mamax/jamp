@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.util.ReflectionUtils;
 
@@ -26,9 +27,11 @@ public class InitStorage implements BeanPostProcessor {
 
     Logger log = LoggerFactory.getLogger(InitStorage.class);
 
-    File usersFile = new File("src\\test\\resources\\json\\users.json");
+    @Value("${usersFilePath}")
+    private String usersFile;
 
-    File eventsFile = new File("src\\test\\resources\\json\\events.json");
+    @Value("${eventsFilePath}")
+    private String eventsFile;
 
     private JsonNode usersJsonNode;
     private JsonNode eventsJsonNode;
@@ -41,8 +44,8 @@ public class InitStorage implements BeanPostProcessor {
         if(bean.getClass().getSimpleName().equalsIgnoreCase("Repository")){
             try {
                 JsonUtils jsonUtils = new JsonUtils();
-                usersJsonNode = jsonUtils.parseJsonNode(usersFile);
-                eventsJsonNode = jsonUtils.parseJsonNode(eventsFile);
+                usersJsonNode = jsonUtils.parseJsonNode(new File(System.getProperty("user.dir") + usersFile));
+                eventsJsonNode = jsonUtils.parseJsonNode(new File(System.getProperty("user.dir") + eventsFile));
 
                 UserWrapper astWr = jsonUtils.getWrapper(usersJsonNode, UserWrapper.class);
 
