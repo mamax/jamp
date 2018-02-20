@@ -46,12 +46,12 @@ public class RealLifeScenarioTest extends CommonTest {
         bookingService.bookTicket(testUser.getId(), event1.getId(), 111, Ticket.Category.PREMIUM);
         bookingService.bookTicket(testUser1.getId(), event1.getId(), 112, Ticket.Category.PREMIUM);
 
-        Assert.assertEquals(bookingService.getBookedTickets(testUser, 5, 1).size(), 2);
-        Assert.assertEquals(bookingService.getBookedTickets(testUser1, 5, 1).size(), 2);
+        Assert.assertEquals(bookingService.getBookedTickets(testUser, 5, 1).size(), 4);
+        Assert.assertEquals(bookingService.getBookedTickets(testUser1, 5, 1).size(), 4);
 
         bookingService.cancelTicket(3);
 
-        Assert.assertEquals(bookingService.getBookedTickets(testUser1, 5, 1).size(), 1);
+        Assert.assertEquals(bookingService.getBookedTickets(testUser1, 5, 1).size(), 3);
 
     }
 
