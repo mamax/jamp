@@ -53,6 +53,4 @@ public class RealLifeScenarioTest extends CommonTest {
 
         Assert.assertEquals(bookingService.getBookedTickets(testUser1, 5, 1).size(), 3);
     }
-
-
 }
