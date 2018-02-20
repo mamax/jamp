@@ -1,0 +1,18 @@
+language: java
+dist: trusty
+
+jdk:
+  - oraclejdk8
+
+# whitelist
+#branches:
+#  only:
+#    - master
+#    - dev
+#    - ran-test
+
+before_script:
+  - cd Module2/springhometask
+
+script:
+  - mvn clean compile test
