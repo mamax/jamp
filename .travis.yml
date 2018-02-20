@@ -16,3 +16,10 @@ before_script:
 
 script:
   - mvn clean compile test
+  
+notifications:
+  email:
+    recipients: #will receive notification, if admin turn it on, in https://github.com/settings/
+        - maksym_mazurkevych@epam.com
+    on_success: never
+    on_failure: always
