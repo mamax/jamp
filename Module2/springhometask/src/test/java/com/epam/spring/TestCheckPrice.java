@@ -5,6 +5,7 @@ import com.epam.spring.model.Event;
 import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Date;
@@ -17,6 +18,7 @@ public class TestCheckPrice extends CommonTest{
         initEventFacade();
     }
 
+    @Ignore
     @Test
     public void testNewTicketPrice(){
         Event eventExample = EventEntity.newBuilder().setTitle("updatedEventTitle").setDate(new Date(2017, 12, 13)).build();
