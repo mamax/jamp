@@ -9,7 +9,7 @@ public class Repository {
         return repository;
     }
 
-    Map<String, Object> repository = new HashMap<>();
+    private Map<String, Object> repository = new HashMap<>();
 
     public void put(String key, Object object){
         repository.put(key, object);

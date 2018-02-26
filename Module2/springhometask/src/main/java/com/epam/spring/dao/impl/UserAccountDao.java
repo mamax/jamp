@@ -11,10 +11,14 @@ import static com.epam.spring.namespace.Constants.USERACCOUNT;
 public class UserAccountDao {
 
     @Autowired
-    Repository repository;
+    private Repository repository;
+
+    private String generatedId(UserAccountEntity userAccount) {
+        return USERACCOUNT + userAccount.getId();
+    }
 
     public void createUserAccount(UserAccountEntity userAccount) {
-        repository.put(USERACCOUNT + userAccount.getId(), userAccount);
+        repository.put(generatedId(userAccount), userAccount);
     }
 
     public boolean deleteUserAccountById(long userId) {
@@ -29,7 +33,7 @@ public class UserAccountDao {
         UserAccountEntity userAccount = null;
         for (Map.Entry<String, Object> entry : repository.getRepository().entrySet()){
             if (entry.getKey().equals(id)){
-                userAccount = (UserAccountEntity) entry.getValue();
+                return (UserAccountEntity) entry.getValue();
             }
         }
 
@@ -39,14 +43,14 @@ public class UserAccountDao {
     public UserAccountEntity updateUserAccount(UserAccountEntity userAccount) {
         UserAccountEntity updatedUser = null;
 
-        if (repository.getRepository().containsKey(USERACCOUNT + userAccount.getId())){
-            updatedUser = (UserAccountEntity) repository.get(USERACCOUNT + userAccount.getId());
+        if (repository.getRepository().containsKey(generatedId(userAccount))){
+            updatedUser = (UserAccountEntity) repository.get(generatedId(userAccount));
 
             updatedUser.setUserId(userAccount.getId());
 
             updatedUser.setAmountOfPrepaidMoney(userAccount.getAmountOfPrepaidMoney());
 
-            repository.put(USERACCOUNT + userAccount.getId(), userAccount);
+            repository.put(generatedId(userAccount), userAccount);
         }
         return updatedUser;
     }
