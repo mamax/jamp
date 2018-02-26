@@ -27,7 +27,7 @@ public class UserAccountServiceImpl {
         }
 
         LOG.log(Level.INFO,"Created user account: {}", userAccount);
-        userAccountDao.createUserAccount(userAccount);
+        userAccountDao.addUserAccount(userAccount);
     }
 
     public UserAccountEntity getUserAccountById(long id){
