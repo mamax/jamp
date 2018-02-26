@@ -26,8 +26,7 @@ public class TestEvents extends CommonTest {
 
     @Test
     public void testUpdateEvent(){
-        Event eventExample = EventEntity.createEvent("updatedEventTitle", new Date(2017, 12, 13));
-        eventExample.setId(1);
+        Event eventExample = EventEntity.newBuilder().setId(1).setTitle("updatedEventTitle").setDate(new Date(2017, 12, 13)).build();
         bookingService.updateEvent(eventExample);
         Assert.assertEquals(eventExample.getTitle(), bookingService.getEventById(1).getTitle());
         Assert.assertEquals(eventExample.getDate(), bookingService.getEventById(1).getDate());

@@ -57,7 +57,7 @@ public class InitStorage implements BeanPostProcessor {
                 EventWrapper eventWrapper = jsonUtils.getWrapper(eventsJsonNode, EventWrapper.class);
 
                 for(EventEntity eventEntity : eventWrapper.getEvents()){
-                    Event event = EventEntity.createEvent(eventEntity.getId(), eventEntity.getTitle(), eventEntity.getDate());
+                    Event event = EventEntity.newBuilder().setId(eventEntity.getId()).setTitle(eventEntity.getTitle()).setDate(eventEntity.getDate()).build();
                     repositoryMap.put(EVENT + event.getId(), event);
                 }
 

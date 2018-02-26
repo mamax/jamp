@@ -30,10 +30,10 @@ public class RealLifeScenarioTest extends CommonTest {
             bookingService.createUser(eve);
         }
 
-        Event event = EventEntity.createEvent("RealEventScenario", new Date());
+        Event event = EventEntity.newBuilder().setTitle("RealEventScenario").setDate(new Date()).build();
         eventList.add(event);
 
-        Event event1 = EventEntity.createEvent("Vakarchuk", new Date());
+        Event event1 = EventEntity.newBuilder().setTitle("Vakarchuk").setDate(new Date()).build();
         eventList.add(event1);
 
         for (Event eve : eventList) {

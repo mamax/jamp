@@ -6,12 +6,46 @@ import java.util.Date;
 
 public class EventEntity implements Event {
 
-    private Long id;
+    private long id;
     private String title;
     private Date date;
     private int ticketPrice;
 
     public EventEntity() {
+    }
+
+    public static Builder newBuilder(){
+        return new EventEntity().new Builder();
+    }
+
+    public class Builder{
+        private Builder(){
+        }
+
+        public Builder setId(long id){
+            EventEntity.this.id = id;
+            return this;
+        }
+
+        public Builder setTitle(String title){
+            EventEntity.this.title = title;
+            return this;
+        }
+
+        public Builder setDate(Date date){
+            EventEntity.this.date = date;
+            return this;
+        }
+
+        public Builder setTicketPrice(int ticketPrice){
+            EventEntity.this.ticketPrice = ticketPrice;
+            return this;
+        }
+
+        public EventEntity build(){
+            return EventEntity.this;
+        }
+
     }
 
     @Override
@@ -48,19 +82,4 @@ public class EventEntity implements Event {
         this.ticketPrice = ticketPrice;
     }
 
-
-    public static Event createEvent(String title, Date dateTime) {
-        Event event = new EventEntity();
-        event.setTitle(title);
-        event.setDate(dateTime);
-        return event;
-    }
-
-    public static Event createEvent(long id, String title, Date dateTime) {
-        Event event = new EventEntity();
-        event.setId(id);
-        event.setTitle(title);
-        event.setDate(dateTime);
-        return event;
-    }
 }
