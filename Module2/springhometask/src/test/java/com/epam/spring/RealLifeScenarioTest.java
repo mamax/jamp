@@ -20,10 +20,10 @@ public class RealLifeScenarioTest extends CommonTest {
     @Test
     public void testSomeRealScenario(){
 
-        User testUser = UserEntity.createUser("updatedUser", "updatedUser@epam.com");
+        User testUser = UserEntity.newBuilder().setUserName("updatedUser").setEmail("updatedUser@epam.com").build();
         userList.add(testUser);
 
-        User testUser1 = UserEntity.createUser("maksym_mazurkevych", "Maksym_Mazurkevych@epam.com");
+        User testUser1 = UserEntity.newBuilder().setUserName("maksym_mazurkevych").setEmail("Maksym_Mazurkevych@epam.com").build();
         userList.add(testUser1);
 
         for (User eve : userList) {

@@ -24,8 +24,12 @@ public class TestUsers extends CommonTest {
 
     @Test
     public void testUpdateUser(){
-        User user = UserEntity.createUser("updatedUser", "updatedUser@epam.com");
-        user.setId(1);
+        User user = UserEntity.newBuilder().
+                setId(1L).
+                setEmail("dSome_user_from@epam.com").
+                setUserName("SomeUser").
+                build();
+
         bookingService.updateUser(user);
         Assert.assertEquals(user.getName(), bookingService.getUserById(1).getName());
         Assert.assertEquals(user.getEmail(), bookingService.getUserById(1).getEmail());

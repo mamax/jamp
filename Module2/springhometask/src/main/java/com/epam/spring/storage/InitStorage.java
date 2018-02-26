@@ -50,7 +50,7 @@ public class InitStorage implements BeanPostProcessor {
                 UserWrapper astWr = jsonUtils.getWrapper(usersJsonNode, UserWrapper.class);
 
                 for (UserEntity userEntity : astWr.getUsers()){
-                    User user = UserEntity.createUser(userEntity.getId(), userEntity.getName(), userEntity.getEmail());
+                    User user = UserEntity.newBuilder().setId(userEntity.getId()).setUserName(userEntity.getName()).setEmail(userEntity.getEmail()).build();
                     repositoryMap.put(USER + user.getId(), user);
                 }
 
