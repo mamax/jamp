@@ -32,7 +32,7 @@ public class UserAccountDao {
     public UserAccountEntity getUserAccountById(long id) {
         UserAccountEntity userAccount = null;
         for (Map.Entry<String, Object> entry : repository.getRepository().entrySet()){
-            if (entry.getKey().contains(Long.toString(id))){
+            if (entry.getKey().contains(USERACCOUNT + Long.toString(id))){
                 return (UserAccountEntity) entry.getValue();
             }
         }
