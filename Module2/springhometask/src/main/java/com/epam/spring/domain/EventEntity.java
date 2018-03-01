@@ -14,40 +14,6 @@ public class EventEntity implements Event {
     public EventEntity() {
     }
 
-    public static Builder newBuilder(){
-        return new EventEntity().new Builder();
-    }
-
-    public class Builder{
-        private Builder(){
-        }
-
-        public Builder setId(long id){
-            EventEntity.this.id = id;
-            return this;
-        }
-
-        public Builder setTitle(String title){
-            EventEntity.this.title = title;
-            return this;
-        }
-
-        public Builder setDate(Date date){
-            EventEntity.this.date = date;
-            return this;
-        }
-
-        public Builder setTicketPrice(int ticketPrice){
-            EventEntity.this.ticketPrice = ticketPrice;
-            return this;
-        }
-
-        public EventEntity build(){
-            return EventEntity.this;
-        }
-
-    }
-
     @Override
     public long getId() {
         return id;

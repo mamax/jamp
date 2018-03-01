@@ -1,6 +1,6 @@
 package com.epam.spring;
 
-import com.epam.spring.domain.EventEntity;
+import com.epam.spring.domain.factory.EventFactory;
 import com.epam.spring.domain.factory.UserFactory;
 import com.epam.spring.model.Event;
 import com.epam.spring.model.Ticket;
@@ -30,10 +30,10 @@ public class RealLifeScenarioTest extends CommonTest {
             bookingService.createUser(eve);
         }
 
-        Event event = EventEntity.newBuilder().setTitle("RealEventScenario").setDate(new Date()).build();
+        Event event = new EventFactory().createEvent("RealEventScenario", new Date());
         eventList.add(event);
 
-        Event event1 = EventEntity.newBuilder().setTitle("Vakarchuk").setDate(new Date()).build();
+        Event event1 = new EventFactory().createEvent("Vakarchuk", new Date());
         eventList.add(event1);
 
         for (Event eve : eventList) {

@@ -2,6 +2,7 @@ package com.epam.spring.storage;
 
 import com.epam.spring.domain.EventEntity;
 import com.epam.spring.domain.UserEntity;
+import com.epam.spring.domain.factory.EventFactory;
 import com.epam.spring.domain.factory.UserFactory;
 import com.epam.spring.domain.wrapper.EventWrapper;
 import com.epam.spring.domain.wrapper.UserWrapper;
@@ -58,7 +59,7 @@ public class InitStorage implements BeanPostProcessor {
                 EventWrapper eventWrapper = jsonUtils.getWrapper(eventsJsonNode, EventWrapper.class);
 
                 for(EventEntity eventEntity : eventWrapper.getEvents()){
-                    Event event = EventEntity.newBuilder().setId(eventEntity.getId()).setTitle(eventEntity.getTitle()).setDate(eventEntity.getDate()).build();
+                    Event event = new EventFactory().createEvent(eventEntity.getId(), eventEntity.getTitle(), eventEntity.getDate());
                     repositoryMap.put(EVENT + event.getId(), event);
                 }
 

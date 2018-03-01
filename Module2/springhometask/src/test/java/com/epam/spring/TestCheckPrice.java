@@ -1,6 +1,6 @@
 package com.epam.spring;
 
-import com.epam.spring.domain.EventEntity;
+import com.epam.spring.domain.factory.EventFactory;
 import com.epam.spring.model.Event;
 import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
@@ -21,7 +21,7 @@ public class TestCheckPrice extends CommonTest{
     @Ignore
     @Test
     public void testNewTicketPrice(){
-        Event eventExample = EventEntity.newBuilder().setTitle("updatedEventTitle").setDate(new Date(2017, 12, 13)).build();
+        Event eventExample = new EventFactory().createEvent("updatedEventTitle", new Date(2017, 12, 13));
         Assert.assertEquals(eventExample.getTitle(), bookingService.getEventById(1).getTitle());
     }
 
