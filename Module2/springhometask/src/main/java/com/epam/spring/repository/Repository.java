@@ -1,9 +1,15 @@
 package com.epam.spring.repository;
 
+import com.epam.spring.model.RepositoryInterface;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class Repository {
+public class Repository implements RepositoryInterface{
+
+    public Object getById(String id) {
+        return repository.get(id);
+    }
 
     public Map<String, Object> getRepository() {
         return repository;
@@ -15,12 +21,12 @@ public class Repository {
         repository.put(key, object);
     }
 
-    public void delete(String key){
-        repository.remove(key);
+    public boolean delete(String key){
+        return repository.remove(key) != null;
     }
 
     public Object get(String key){
-        return repository.remove(key);
+        return repository.get(key);
     }
 
 }

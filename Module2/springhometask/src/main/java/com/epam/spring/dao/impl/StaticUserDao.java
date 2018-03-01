@@ -1,5 +1,6 @@
 package com.epam.spring.dao.impl;
 
+import com.epam.spring.domain.UserEntity;
 import com.epam.spring.model.User;
 import com.epam.spring.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +17,12 @@ public class StaticUserDao  {
     @Autowired
     Repository repository;
 
-    public User getUserById(long userId) {
-        User user = null;
-        for (Map.Entry<String, Object> entry : repository.getRepository().entrySet()) {
-            if (entry.getKey().contains(USER + Long.toString(userId))) {
-                user = (User) repository.getRepository().get(USER + Long.toString(userId));
-            }
-        }
+    private String generatedUserId(long userId) {
+        return USER + Long.toString(userId);
+    }
 
-        return user;
+    public User getUserById(long userId) {
+        return (UserEntity) repository.getById(generatedUserId(userId));
     }
 
     public User getUserByEmail(String email) {
@@ -50,29 +48,25 @@ public class StaticUserDao  {
     }
 
     public void createUser(User userEntity) {
-        repository.put(USER + userEntity.getId(), userEntity);
+        repository.put(generatedUserId(userEntity.getId()), userEntity);
     }
 
     public User updateUser(User userEntity) {
         User updatedUser = null;
 
-        if (repository.getRepository().containsKey(USER + userEntity.getId())){
-            updatedUser = (User) repository.get(USER + userEntity.getId());
+        if (repository.getRepository().containsKey(generatedUserId(userEntity.getId()))){
+            updatedUser = (User) repository.get(generatedUserId(userEntity.getId()));
 
             updatedUser.setName(userEntity.getName());
 
             updatedUser.setEmail(userEntity.getEmail());
 
-            repository.put(USER + userEntity.getId(), userEntity);
+            repository.put(generatedUserId(userEntity.getId()), userEntity);
         }
         return updatedUser;
     }
 
     public boolean deleteUser(long userId) {
-        if (repository.getRepository().containsKey(USER + Long.toString(userId))){
-            repository.delete(USER + Long.toString(userId));
-            return true;
-        }
-        return false;
+        return repository.delete(generatedUserId(userId));
     }
 }
