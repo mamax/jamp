@@ -11,36 +11,6 @@ public class UserEntity implements User {
     public UserEntity() {
     }
 
-    public static Builder newBuilder() {
-        return new UserEntity().new Builder();
-    }
-
-    public class Builder{
-
-        private Builder(){
-        }
-
-        public Builder setId(long id) {
-            UserEntity.this.id = id;
-            return this;
-        }
-
-        public Builder setEmail(String email) {
-            UserEntity.this.email = email;
-            return this;
-        }
-
-        public Builder setUserName(String name){
-            UserEntity.this.name = name;
-            return this;
-        }
-
-        public UserEntity build(){
-            return UserEntity.this;
-        }
-
-    }
-
     @Override
     public long getId() {
         return id;

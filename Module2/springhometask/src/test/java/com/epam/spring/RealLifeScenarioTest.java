@@ -1,7 +1,7 @@
 package com.epam.spring;
 
 import com.epam.spring.domain.EventEntity;
-import com.epam.spring.domain.UserEntity;
+import com.epam.spring.domain.factory.UserFactory;
 import com.epam.spring.model.Event;
 import com.epam.spring.model.Ticket;
 import com.epam.spring.model.User;
@@ -20,10 +20,10 @@ public class RealLifeScenarioTest extends CommonTest {
     @Test
     public void testSomeRealScenario(){
 
-        User testUser = UserEntity.newBuilder().setUserName("updatedUser").setEmail("updatedUser@epam.com").build();
+        User testUser = new UserFactory().createUser("updatedUser", "updatedUser@epam.com");
         userList.add(testUser);
 
-        User testUser1 = UserEntity.newBuilder().setUserName("maksym_mazurkevych").setEmail("Maksym_Mazurkevych@epam.com").build();
+        User testUser1 = new UserFactory().createUser("Maksym_Mazurkevych@epam.com", "maksym_mazurkevych");
         userList.add(testUser1);
 
         for (User eve : userList) {
