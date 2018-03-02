@@ -24,60 +24,6 @@ public class TicketEntity implements Ticket{
                 '}';
     }
 
-    public TicketEntity(long ticketId, int place, long userId, long eventId, Category category) {
-        this.ticketId = ticketId;
-        this.place = place;
-        this.userId = userId;
-        this.eventId = eventId;
-        this.category = category;
-    }
-
-    public static Ticket createNewTicket(long ticketId, long userId, long eventId, int place, Category category) {
-        Ticket ticket = new TicketEntity();
-        ticket.setId(ticketId);
-        ticket.setEventId(eventId);
-        ticket.setUserId(userId);
-        ticket.setPlace(place);
-        ticket.setCategory(category);
-        return ticket;
-    }
-
-//    public static class Builder{
-//        private long ticketId;
-//        private long userId;
-//        private long eventId;
-//        private Category category;
-//        private int place;
-//
-//        public Builder setPlace(int place) {
-//            this.place = place;
-//            return this;
-//        }
-//
-//        public Builder setUserId(long userId) {
-//            this.userId = userId;
-//            return this;
-//        }
-//
-//        public Builder setEventId(long eventId) {
-//            this.eventId = eventId;
-//            return this;
-//        }
-//
-//        public Builder setCategory(Category category) {
-//            this.category = category;
-//            return this;
-//        }
-//
-//        public Builder setId(long id){
-//            this.ticketId = id;
-//            return this;
-//        }
-//
-//        public TicketEntity build(){return new TicketEntity(ticketId, place, userId, eventId, category);}
-//
-//    }
-
     @Override
     public long getId() {
         return ticketId;

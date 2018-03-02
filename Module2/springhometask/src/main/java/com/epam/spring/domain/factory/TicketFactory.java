@@ -13,4 +13,14 @@ public class TicketFactory {
         ticket.setCategory(category);
         return ticket;
     }
+
+    public static Ticket createTicket(long ticketId, long userId, long eventId, int place, Ticket.Category category) {
+        Ticket ticket = new TicketEntity();
+        ticket.setId(ticketId);
+        ticket.setEventId(eventId);
+        ticket.setUserId(userId);
+        ticket.setPlace(place);
+        ticket.setCategory(category);
+        return ticket;
+    }
 }
