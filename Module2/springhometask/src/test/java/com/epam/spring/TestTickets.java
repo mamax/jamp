@@ -1,6 +1,6 @@
 package com.epam.spring;
 
-import com.epam.spring.domain.TicketEntity;
+import com.epam.spring.domain.factory.TicketFactory;
 import com.epam.spring.model.Ticket;
 import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
@@ -25,10 +25,10 @@ public class TestTickets extends CommonTest {
     }
 
     private void initListOfTickets() {
-        ticketList.add(TicketEntity.createNewTicket(0, 0, 1,1, Ticket.Category.STANDARD));
-        ticketList.add(TicketEntity.createNewTicket(1, 0, 0,10, Ticket.Category.PREMIUM));
-        ticketList.add(TicketEntity.createNewTicket(2, 1, 1,13, Ticket.Category.BAR));
-        ticketList.add(TicketEntity.createNewTicket(3, 1, 0,18, Ticket.Category.BAR));
+        ticketList.add(TicketFactory.createTicket(0, 0, 1,1, Ticket.Category.STANDARD));
+        ticketList.add(TicketFactory.createTicket(1, 0, 0,10, Ticket.Category.PREMIUM));
+        ticketList.add(TicketFactory.createTicket(2, 1, 1,13, Ticket.Category.BAR));
+        ticketList.add(TicketFactory.createTicket(3, 1, 0,18, Ticket.Category.BAR));
     }
 
     private void bookTicketsFacade() {
