@@ -25,10 +25,10 @@ public class TestTickets extends CommonTest {
     }
 
     private void initListOfTickets() {
-        ticketList.add(TicketFactory.createTicket(0, 0, 1,1, Ticket.Category.STANDARD));
-        ticketList.add(TicketFactory.createTicket(1, 0, 0,10, Ticket.Category.PREMIUM));
-        ticketList.add(TicketFactory.createTicket(2, 1, 1,13, Ticket.Category.BAR));
-        ticketList.add(TicketFactory.createTicket(3, 1, 0,18, Ticket.Category.BAR));
+        ticketList.add(new TicketFactory().createTicket(0, 0, 1,1, Ticket.Category.STANDARD));
+        ticketList.add(new TicketFactory().createTicket(1, 0, 0,10, Ticket.Category.PREMIUM));
+        ticketList.add(new TicketFactory().createTicket(2, 1, 1,13, Ticket.Category.BAR));
+        ticketList.add(new TicketFactory().createTicket(3, 1, 0,18, Ticket.Category.BAR));
     }
 
     private void bookTicketsFacade() {

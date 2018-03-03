@@ -14,7 +14,7 @@ public class TicketFactory {
         return ticket;
     }
 
-    public static Ticket createTicket(long ticketId, long userId, long eventId, int place, Ticket.Category category) {
+    public Ticket createTicket(long ticketId, long userId, long eventId, int place, Ticket.Category category) {
         Ticket ticket = new TicketEntity();
         ticket.setId(ticketId);
         ticket.setEventId(eventId);
