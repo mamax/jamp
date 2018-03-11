@@ -14,7 +14,7 @@ import static com.epam.spring.namespace.Constants.EVENT;
 public class EventDao {
 
     @Autowired
-    Repository repository;
+    private Repository repository;
 
     private String generatedEventId(long eventId) {
         return EVENT + Long.toString(eventId);

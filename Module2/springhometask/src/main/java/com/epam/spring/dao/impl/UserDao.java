@@ -15,7 +15,7 @@ import static com.epam.spring.namespace.Constants.USER;
 public class UserDao {
 
     @Autowired
-    Repository repository;
+    private Repository repository;
 
     private String generatedUserId(long userId) {
         return USER + Long.toString(userId);
