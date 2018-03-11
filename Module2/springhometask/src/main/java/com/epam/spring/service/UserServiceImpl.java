@@ -1,6 +1,6 @@
 package com.epam.spring.service;
 
-import com.epam.spring.dao.impl.StaticUserDao;
+import com.epam.spring.dao.impl.UserDao;
 import com.epam.spring.model.User;
 import com.epam.spring.utils.Utils;
 
@@ -13,15 +13,15 @@ public class UserServiceImpl{
     public UserServiceImpl() {
     }
 
-    public void setUserDAO(StaticUserDao userDAO) {
+    public void setUserDAO(UserDao userDAO) {
         this.userDAO = userDAO;
     }
 
-    StaticUserDao userDAO;
+    UserDao userDAO;
     private long userId = 0;
     private static final Logger LOG = Logger.getLogger(UserServiceImpl.class.getName());
 
-    public UserServiceImpl(StaticUserDao userDAO) {
+    public UserServiceImpl(UserDao userDAO) {
         this.userDAO = userDAO;
     }
 

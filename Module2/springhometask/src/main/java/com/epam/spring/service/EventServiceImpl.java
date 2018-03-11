@@ -1,6 +1,6 @@
 package com.epam.spring.service;
 
-import com.epam.spring.dao.impl.StaticEventDao;
+import com.epam.spring.dao.impl.EventDao;
 import com.epam.spring.model.Event;
 import com.epam.spring.utils.Utils;
 
@@ -14,15 +14,15 @@ public class EventServiceImpl {
     public EventServiceImpl() {
     }
 
-    public void setEventDAO(StaticEventDao eventDAO) {
+    public void setEventDAO(EventDao eventDAO) {
         this.eventDAO = eventDAO;
     }
 
-    StaticEventDao eventDAO;
+    EventDao eventDAO;
     private long eventId = 0;
     private static final Logger LOG = Logger.getLogger(EventServiceImpl.class.getName());
 
-    public EventServiceImpl(StaticEventDao eventDAO) {
+    public EventServiceImpl(EventDao eventDAO) {
         this.eventDAO = eventDAO;
     }
 

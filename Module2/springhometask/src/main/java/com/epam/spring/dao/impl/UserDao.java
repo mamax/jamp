@@ -12,7 +12,7 @@ import java.util.Map;
 import static com.epam.spring.namespace.Constants.USER;
 
 
-public class StaticUserDao  {
+public class UserDao {
 
     @Autowired
     Repository repository;

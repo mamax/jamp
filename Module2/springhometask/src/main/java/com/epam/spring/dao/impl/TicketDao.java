@@ -13,10 +13,10 @@ import java.util.Map;
 
 import static com.epam.spring.namespace.Constants.TICKET;
 
-public class StaticTicketDao implements TicketDAO {
+public class TicketDao implements TicketDAO {
 
     @Autowired
-    Repository repository;
+    private Repository repository;
     private int ticketId = 0;
 
     private String generatedTicketId(long ticketId) {

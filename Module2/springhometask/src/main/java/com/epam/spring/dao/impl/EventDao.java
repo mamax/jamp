@@ -11,7 +11,7 @@ import java.util.Map;
 
 import static com.epam.spring.namespace.Constants.EVENT;
 
-public class StaticEventDao {
+public class EventDao {
 
     @Autowired
     Repository repository;

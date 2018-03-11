@@ -38,9 +38,9 @@
         <constructor-arg ref="userAccountService"/>
     </bean>
 
-    <bean id="userDao" class="com.epam.spring.dao.impl.StaticUserDao"/>
-    <bean id="ticketDao" class="com.epam.spring.dao.impl.StaticTicketDao"/>
-    <bean id="eventDao" class="com.epam.spring.dao.impl.StaticEventDao"/>
+    <bean id="userDao" class="com.epam.spring.dao.impl.UserDao"/>
+    <bean id="ticketDao" class="com.epam.spring.dao.impl.TicketDao"/>
+    <bean id="eventDao" class="com.epam.spring.dao.impl.EventDao"/>
     <bean id="userAccountDao" class="com.epam.spring.dao.impl.UserAccountDao"/>
 
 </beans>
