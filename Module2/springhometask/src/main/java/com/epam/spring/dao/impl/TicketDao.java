@@ -27,8 +27,7 @@ public class TicketDao implements TicketDAO {
     public Ticket createTicket(Ticket ticket) {
         ticket.setId(ticketId++);
         repository.put(generatedTicketId(ticket.getId()), ticket);
-        Ticket tempTicket = (Ticket) repository.getById(generatedTicketId(ticket.getId()));
-        return tempTicket;
+        return (Ticket) repository.getById(generatedTicketId(ticket.getId()));
     }
 
     @Override
