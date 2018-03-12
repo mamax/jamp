@@ -22,5 +22,14 @@ public class EventFactory  {
         return event;
     }
 
+    public Event createEvent(long id, String title, Date date, long ticketPrice){
+        Event event = new EventEntity();
+        event.setId(id);
+        event.setTitle(title);
+        event.setDate(date);
+        event.setTicketPrice(ticketPrice);
+        return event;
+    }
+
 
 }
