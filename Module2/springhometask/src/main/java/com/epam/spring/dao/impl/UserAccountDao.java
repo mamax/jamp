@@ -1,10 +1,11 @@
 package com.epam.spring.dao.impl;
 
 import com.epam.spring.domain.UserAccountEntity;
+import com.epam.spring.model.UserAccount;
 import com.epam.spring.repository.Repository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static com.epam.spring.namespace.Constants.USER;
 import static com.epam.spring.namespace.Constants.USERACCOUNT;
 
 public class UserAccountDao {
@@ -12,38 +13,41 @@ public class UserAccountDao {
     @Autowired
     private Repository repository;
 
-    private String generatedId(long id) {
+    private String generatedUserAccountId(long id) {
         return USERACCOUNT + Long.toString(id);
     }
 
-    public void addUserAccount(UserAccountEntity userAccount) {
-        repository.put(generatedId(userAccount.getId()), userAccount);
+    public void addUserAccount(UserAccount userAccount) {
+        repository.put(generatedUserAccountId(userAccount.getId()), userAccount);
     }
 
     public boolean deleteUserAccountById(long userId) {
-        return repository.delete(generatedId(userId));
+        return repository.delete(generatedUserAccountId(userId));
     }
 
     public UserAccountEntity getUserAccountById(long id) {
-        return (UserAccountEntity) repository.getById(generatedId(id));
+        return (UserAccountEntity) repository.getById(
+          generatedUserAccountId(id));
     }
 
-    public UserAccountEntity updateUserAccount(UserAccountEntity userAccount) {
-        UserAccountEntity updatedUser = null;
+    public UserAccount updateUserAccount(UserAccount userAccount) {
+        UserAccount updatedUser = null;
 
-        if (repository.getRepository().containsKey(generatedId(userAccount.getId()))){
-            updatedUser = (UserAccountEntity) repository.get(generatedId(userAccount.getId()));
+        if (repository.getRepository().containsKey(
+          generatedUserAccountId(userAccount.getId()))){
+            updatedUser = (UserAccountEntity) repository.get(
+              generatedUserAccountId(userAccount.getId()));
 
             updatedUser.setUserId(userAccount.getId());
 
             updatedUser.setAmountOfPrepaidMoney(userAccount.getAmountOfPrepaidMoney());
 
-            repository.put(generatedId(userAccount.getId()), userAccount);
+            repository.put(generatedUserAccountId(userAccount.getId()), userAccount);
         }
         return updatedUser;
     }
 
-    public UserAccountEntity getUserAccountByUserId(long userId) {
-        return (UserAccountEntity) repository.getById(USER + Long.toString(userId));
+    public UserAccount getUserAccountByUserId(long userId) {
+        return (UserAccountEntity) repository.getById(generatedUserAccountId(userId));
     }
 }

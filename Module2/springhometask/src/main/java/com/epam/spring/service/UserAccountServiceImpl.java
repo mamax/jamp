@@ -2,6 +2,7 @@ package com.epam.spring.service;
 
 import com.epam.spring.dao.impl.UserAccountDao;
 import com.epam.spring.domain.UserAccountEntity;
+import com.epam.spring.model.UserAccount;
 import com.epam.spring.utils.Utils;
 
 import java.util.logging.Level;
@@ -34,7 +35,7 @@ public class UserAccountServiceImpl {
         return userAccountDao.getUserAccountById(id);
     }
 
-    public UserAccountEntity getUserAccountByUserId(long userId) {
+    public UserAccount getUserAccountByUserId(long userId) {
         if (!Utils.isUserIdIsValid(userId)){
             LOG.log(Level.WARNING, "userId is not valid");
             throw new IllegalArgumentException();
@@ -43,7 +44,7 @@ public class UserAccountServiceImpl {
         return userAccountDao.getUserAccountByUserId(userId);
     }
 
-    public UserAccountEntity updateUserAccount(UserAccountEntity userAccount){
+    public UserAccount updateUserAccount(UserAccountEntity userAccount){
         if (!Utils.isUserAccountValid(userAccount)){
             LOG.log(Level.WARNING, "userAccount is not valid");
             throw new IllegalArgumentException();

@@ -5,6 +5,7 @@ import com.epam.spring.facade.BookingFacade;
 import com.epam.spring.model.Event;
 import com.epam.spring.model.Ticket;
 import com.epam.spring.model.User;
+import com.epam.spring.model.UserAccount;
 
 import java.util.Date;
 import java.util.List;
@@ -103,7 +104,7 @@ public class BookingFacadeServiceImpl implements BookingFacade {
         return ticketService.cancelTicket(ticketId);
     }
 
-    public UserAccountEntity getUserAccountByUserId(long userId){
+    public UserAccount getUserAccountByUserId(long userId){
         return userAccountService.getUserAccountByUserId(userId);
     }
 
@@ -111,7 +112,7 @@ public class BookingFacadeServiceImpl implements BookingFacade {
         return userAccountService.getUserAccountById(id);
     }
 
-    public UserAccountEntity updateUserAccount(UserAccountEntity userAccount){
+    public UserAccount updateUserAccount(UserAccountEntity userAccount){
         return userAccountService.updateUserAccount(userAccount);
     }
 
