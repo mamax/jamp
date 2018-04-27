@@ -8,7 +8,7 @@ public class WebDriverFactory {
      * Increases current speed
      * @param speed
      * @return
-     *        Instance od driver
+     *        Instance of driver
      */
     public static WebDriverSingleton increaseSpeed(int speed){
         WebDriverSingleton dr1 = getInstance();
