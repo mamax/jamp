@@ -13,18 +13,21 @@ import java.util.Map;
 
 import static com.epam.spring.namespace.Constants.TICKET;
 
-public class StaticTicketDao implements TicketDAO {
+public class TicketDao implements TicketDAO {
 
     @Autowired
-    Repository repository;
+    private Repository repository;
     private int ticketId = 0;
+
+    private String generatedTicketId(long ticketId) {
+        return TICKET + Long.toString(ticketId);
+    }
 
     @Override
     public Ticket createTicket(Ticket ticket) {
         ticket.setId(ticketId++);
-        repository.put(TICKET+ticket.getId(), ticket);
-        Ticket tempTicket = (Ticket) repository.getRepository().get(TICKET+ticket.getId());
-        return tempTicket;
+        repository.put(generatedTicketId(ticket.getId()), ticket);
+        return (Ticket) repository.getById(generatedTicketId(ticket.getId()));
     }
 
     @Override
@@ -59,10 +62,6 @@ public class StaticTicketDao implements TicketDAO {
 
     @Override
     public boolean cancelTicket(long ticketId) {
-        if (repository.getRepository().containsKey(TICKET + ticketId)) {
-            repository.delete(TICKET + ticketId);
-            return true;
-        }
-        return false;
+        return repository.delete(generatedTicketId(ticketId));
     }
 }

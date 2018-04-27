@@ -1,7 +1,7 @@
 package com.epam.spring;
 
-import com.epam.spring.domain.EventEntity;
-import com.epam.spring.domain.UserEntity;
+import com.epam.spring.domain.factory.EventFactory;
+import com.epam.spring.domain.factory.UserFactory;
 import com.epam.spring.model.Event;
 import com.epam.spring.model.Ticket;
 import com.epam.spring.model.User;
@@ -20,20 +20,20 @@ public class RealLifeScenarioTest extends CommonTest {
     @Test
     public void testSomeRealScenario(){
 
-        User testUser = UserEntity.createUser("updatedUser", "updatedUser@epam.com");
+        User testUser = new UserFactory().createUser("updatedUser", "updatedUser@epam.com");
         userList.add(testUser);
 
-        User testUser1 = UserEntity.createUser("maksym_mazurkevych", "Maksym_Mazurkevych@epam.com");
+        User testUser1 = new UserFactory().createUser("Maksym_Mazurkevych@epam.com", "maksym_mazurkevych");
         userList.add(testUser1);
 
         for (User eve : userList) {
             bookingService.createUser(eve);
         }
 
-        Event event = EventEntity.createEvent("RealEventScenario", new Date());
+        Event event = new EventFactory().createEvent("RealEventScenario", new Date());
         eventList.add(event);
 
-        Event event1 = EventEntity.createEvent("Vakarchuk", new Date());
+        Event event1 = new EventFactory().createEvent("Vakarchuk", new Date());
         eventList.add(event1);
 
         for (Event eve : eventList) {
@@ -46,14 +46,11 @@ public class RealLifeScenarioTest extends CommonTest {
         bookingService.bookTicket(testUser.getId(), event1.getId(), 111, Ticket.Category.PREMIUM);
         bookingService.bookTicket(testUser1.getId(), event1.getId(), 112, Ticket.Category.PREMIUM);
 
-        Assert.assertEquals(bookingService.getBookedTickets(testUser, 5, 1).size(), 2);
-        Assert.assertEquals(bookingService.getBookedTickets(testUser1, 5, 1).size(), 2);
+        Assert.assertEquals(bookingService.getBookedTickets(testUser, 5, 1).size(), 4);
+        Assert.assertEquals(bookingService.getBookedTickets(testUser1, 5, 1).size(), 4);
 
         bookingService.cancelTicket(3);
 
-        Assert.assertEquals(bookingService.getBookedTickets(testUser1, 5, 1).size(), 1);
-
+        Assert.assertEquals(bookingService.getBookedTickets(testUser1, 5, 1).size(), 3);
     }
-
-
 }

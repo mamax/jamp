@@ -27,14 +27,20 @@
         <constructor-arg ref="eventDao"/>
     </bean>
 
+    <bean id="userAccountService" class="com.epam.spring.service.UserAccountServiceImpl">
+        <constructor-arg ref="userAccountDao"/>
+    </bean>
+
     <bean id="bookingService" class="com.epam.spring.service.BookingFacadeServiceImpl">
         <constructor-arg ref="ticketService"/>
         <constructor-arg ref="eventService"/>
         <constructor-arg ref="userService"/>
+        <constructor-arg ref="userAccountService"/>
     </bean>
 
-    <bean id="userDao" class="com.epam.spring.dao.impl.StaticUserDao"/>
-    <bean id="ticketDao" class="com.epam.spring.dao.impl.StaticTicketDao"/>
-    <bean id="eventDao" class="com.epam.spring.dao.impl.StaticEventDao"/>
+    <bean id="userDao" class="com.epam.spring.dao.impl.UserDao"/>
+    <bean id="ticketDao" class="com.epam.spring.dao.impl.TicketDao"/>
+    <bean id="eventDao" class="com.epam.spring.dao.impl.EventDao"/>
+    <bean id="userAccountDao" class="com.epam.spring.dao.impl.UserAccountDao"/>
 
 </beans>

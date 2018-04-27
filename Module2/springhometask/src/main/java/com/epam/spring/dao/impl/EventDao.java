@@ -11,10 +11,14 @@ import java.util.Map;
 
 import static com.epam.spring.namespace.Constants.EVENT;
 
-public class StaticEventDao {
+public class EventDao {
 
     @Autowired
-    Repository repository;
+    private Repository repository;
+
+    private String generatedEventId(long eventId) {
+        return EVENT + Long.toString(eventId);
+    }
 
     public Event getEventById(long eventId) {
         Event tempEvent = null;
@@ -49,29 +53,25 @@ public class StaticEventDao {
     }
 
     public void createEvent(Event eventEntity) {
-        repository.put(EVENT + eventEntity.getId(), eventEntity);
+        repository.put(generatedEventId(eventEntity.getId()), eventEntity);
     }
 
     public Event updateEvent(Event eventEntity) {
         Event tempEvent = null;
-        if (repository.getRepository().containsKey(EVENT + eventEntity.getId())){
-            tempEvent = (Event) repository.get(EVENT + eventEntity.getId());
+        if (repository.getRepository().containsKey(generatedEventId(eventEntity.getId()))){
+            tempEvent = (Event) repository.get(generatedEventId(eventEntity.getId()));
 
             tempEvent.setDate(eventEntity.getDate());
 
             tempEvent.setTitle(eventEntity.getTitle());
-            repository.put(EVENT + eventEntity.getId(), tempEvent);
+            repository.put(generatedEventId(eventEntity.getId()), tempEvent);
         }
 
         return tempEvent;
     }
 
     public boolean deleteEvent(long eventId) {
-        if (repository.getRepository().containsKey(EVENT + Long.toString(eventId))){
-            repository.delete(EVENT + Long.toString(eventId));
-            return true;
-        }
-        return false;
+        return repository.delete(generatedEventId(eventId));
     }
 
 }

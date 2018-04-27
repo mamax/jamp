@@ -1,11 +1,12 @@
 package com.epam.spring;
 
-import com.epam.spring.domain.TicketEntity;
+import com.epam.spring.domain.factory.TicketFactory;
 import com.epam.spring.model.Ticket;
 import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 public class TestTickets extends CommonTest {
 
     List<Ticket> ticketList = new ArrayList<>();
+    TicketFactory ticketFactory = new TicketFactory();
 
     @Before
     public void init(){
@@ -25,10 +27,10 @@ public class TestTickets extends CommonTest {
     }
 
     private void initListOfTickets() {
-        ticketList.add(TicketEntity.createNewTicket(0, 0, 1,1, Ticket.Category.STANDARD));
-        ticketList.add(TicketEntity.createNewTicket(1, 0, 0,10, Ticket.Category.PREMIUM));
-        ticketList.add(TicketEntity.createNewTicket(2, 1, 1,13, Ticket.Category.BAR));
-        ticketList.add(TicketEntity.createNewTicket(3, 1, 0,18, Ticket.Category.BAR));
+        ticketList.add(ticketFactory.createTicket(0, 0, 1,1, Ticket.Category.STANDARD));
+        ticketList.add(ticketFactory.createTicket(1, 0, 0,10, Ticket.Category.PREMIUM));
+        ticketList.add(ticketFactory.createTicket(2, 1, 1,13, Ticket.Category.BAR));
+        ticketList.add(ticketFactory.createTicket(3, 1, 0,18, Ticket.Category.BAR));
     }
 
     private void bookTicketsFacade() {

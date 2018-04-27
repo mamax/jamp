@@ -1,6 +1,6 @@
 package com.epam.spring;
 
-import com.epam.spring.domain.UserEntity;
+import com.epam.spring.domain.factory.UserFactory;
 import com.epam.spring.model.User;
 import com.epam.spring.utils.CommonTest;
 import org.junit.Assert;
@@ -24,8 +24,8 @@ public class TestUsers extends CommonTest {
 
     @Test
     public void testUpdateUser(){
-        User user = UserEntity.createUser("updatedUser", "updatedUser@epam.com");
-        user.setId(1);
+        User user = new UserFactory().createUser(1L,"SomeUser", "dSome_user_from@epam.com");
+
         bookingService.updateUser(user);
         Assert.assertEquals(user.getName(), bookingService.getUserById(1).getName());
         Assert.assertEquals(user.getEmail(), bookingService.getUserById(1).getEmail());

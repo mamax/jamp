@@ -6,9 +6,10 @@ import java.util.Date;
 
 public class EventEntity implements Event {
 
-    private Long id;
+    private long id;
     private String title;
     private Date date;
+    private long ticketPrice;
 
     public EventEntity() {
     }
@@ -39,18 +40,12 @@ public class EventEntity implements Event {
         this.date = date;
     }
 
-    public static Event createEvent(String title, Date dateTime) {
-        Event event = new EventEntity();
-        event.setTitle(title);
-        event.setDate(dateTime);
-        return event;
+    public long getTicketPrice() {
+        return ticketPrice;
     }
 
-    public static Event createEvent(long id, String title, Date dateTime) {
-        Event event = new EventEntity();
-        event.setId(id);
-        event.setTitle(title);
-        event.setDate(dateTime);
-        return event;
+    public void setTicketPrice(long ticketPrice) {
+        this.ticketPrice = ticketPrice;
     }
+
 }

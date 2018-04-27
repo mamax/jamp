@@ -2,6 +2,8 @@ package com.epam.spring.storage;
 
 import com.epam.spring.domain.EventEntity;
 import com.epam.spring.domain.UserEntity;
+import com.epam.spring.domain.factory.EventFactory;
+import com.epam.spring.domain.factory.UserFactory;
 import com.epam.spring.domain.wrapper.EventWrapper;
 import com.epam.spring.domain.wrapper.UserWrapper;
 import com.epam.spring.model.Event;
@@ -11,6 +13,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.util.ReflectionUtils;
 
@@ -26,9 +29,11 @@ public class InitStorage implements BeanPostProcessor {
 
     Logger log = LoggerFactory.getLogger(InitStorage.class);
 
-    File usersFile = new File("src\\test\\resources\\json\\users.json");
+    @Value("${usersFilePath}")
+    private String usersFile;
 
-    File eventsFile = new File("src\\test\\resources\\json\\events.json");
+    @Value("${eventsFilePath}")
+    private String eventsFile;
 
     private JsonNode usersJsonNode;
     private JsonNode eventsJsonNode;
@@ -41,20 +46,20 @@ public class InitStorage implements BeanPostProcessor {
         if(bean.getClass().getSimpleName().equalsIgnoreCase("Repository")){
             try {
                 JsonUtils jsonUtils = new JsonUtils();
-                usersJsonNode = jsonUtils.parseJsonNode(usersFile);
-                eventsJsonNode = jsonUtils.parseJsonNode(eventsFile);
+                usersJsonNode = jsonUtils.parseJsonNode(new File(System.getProperty("user.dir") + usersFile));
+                eventsJsonNode = jsonUtils.parseJsonNode(new File(System.getProperty("user.dir") + eventsFile));
 
                 UserWrapper astWr = jsonUtils.getWrapper(usersJsonNode, UserWrapper.class);
 
                 for (UserEntity userEntity : astWr.getUsers()){
-                    User user = UserEntity.createUser(userEntity.getId(), userEntity.getName(), userEntity.getEmail());
+                    User user = new UserFactory().createUser(userEntity.getId(), userEntity.getName(), userEntity.getEmail());
                     repositoryMap.put(USER + user.getId(), user);
                 }
 
                 EventWrapper eventWrapper = jsonUtils.getWrapper(eventsJsonNode, EventWrapper.class);
 
                 for(EventEntity eventEntity : eventWrapper.getEvents()){
-                    Event event = EventEntity.createEvent(eventEntity.getId(), eventEntity.getTitle(), eventEntity.getDate());
+                    Event event = new EventFactory().createEvent(eventEntity.getId(), eventEntity.getTitle(), eventEntity.getDate());
                     repositoryMap.put(EVENT + event.getId(), event);
                 }
 

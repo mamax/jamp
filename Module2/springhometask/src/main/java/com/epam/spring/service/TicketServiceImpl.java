@@ -1,7 +1,7 @@
 package com.epam.spring.service;
 
-import com.epam.spring.dao.impl.StaticTicketDao;
-import com.epam.spring.domain.TicketEntity;
+import com.epam.spring.dao.impl.TicketDao;
+import com.epam.spring.domain.factory.TicketFactory;
 import com.epam.spring.model.Event;
 import com.epam.spring.model.Ticket;
 import com.epam.spring.model.User;
@@ -16,14 +16,14 @@ public class TicketServiceImpl {
     public TicketServiceImpl() {
     }
 
-    public void setTicketDao(StaticTicketDao ticketDao) {
+    public void setTicketDao(TicketDao ticketDao) {
         this.ticketDao = ticketDao;
     }
 
-    StaticTicketDao ticketDao;
+    TicketDao ticketDao;
     private static final Logger LOG = Logger.getLogger(TicketServiceImpl.class.getName());
 
-    public TicketServiceImpl(StaticTicketDao ticketDao) {
+    public TicketServiceImpl(TicketDao ticketDao) {
         this.ticketDao = ticketDao;
     }
 
@@ -33,11 +33,7 @@ public class TicketServiceImpl {
             throw new IllegalArgumentException();
         }
 
-        Ticket ticket = new TicketEntity.Builder().
-                setUserId(userId).
-                setEventId(eventId).
-                setPlace(place).
-                setCategory(category).build();
+        Ticket ticket = new TicketFactory().createTicket(userId, eventId, place, category);
         LOG.log(Level.INFO, "Booked ticket:" + ticket);
         return ticketDao.createTicket(ticket);
     }

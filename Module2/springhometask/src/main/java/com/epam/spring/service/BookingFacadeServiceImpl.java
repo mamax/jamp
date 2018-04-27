@@ -1,9 +1,11 @@
 package com.epam.spring.service;
 
+import com.epam.spring.domain.UserAccountEntity;
 import com.epam.spring.facade.BookingFacade;
 import com.epam.spring.model.Event;
 import com.epam.spring.model.Ticket;
 import com.epam.spring.model.User;
+import com.epam.spring.model.UserAccount;
 
 import java.util.Date;
 import java.util.List;
@@ -13,11 +15,13 @@ public class BookingFacadeServiceImpl implements BookingFacade {
     private EventServiceImpl eventService;
     private UserServiceImpl userService;
     private TicketServiceImpl ticketService;
+    private UserAccountServiceImpl userAccountService;
 
-    public BookingFacadeServiceImpl(EventServiceImpl eventService, UserServiceImpl userService, TicketServiceImpl ticketService) {
+    public BookingFacadeServiceImpl(EventServiceImpl eventService, UserServiceImpl userService, TicketServiceImpl ticketService, UserAccountServiceImpl userAccountService) {
         this.eventService = eventService;
         this.userService = userService;
         this.ticketService = ticketService;
+        this.userAccountService = userAccountService;
     }
 
     @Override
@@ -98,5 +102,21 @@ public class BookingFacadeServiceImpl implements BookingFacade {
     @Override
     public boolean cancelTicket(long ticketId) {
         return ticketService.cancelTicket(ticketId);
+    }
+
+    public UserAccount getUserAccountByUserId(long userId){
+        return userAccountService.getUserAccountByUserId(userId);
+    }
+
+    public UserAccountEntity getUserAccountById(long id){
+        return userAccountService.getUserAccountById(id);
+    }
+
+    public UserAccount updateUserAccount(UserAccountEntity userAccount){
+        return userAccountService.updateUserAccount(userAccount);
+    }
+
+    public void deleteUserAccount(long id){
+        userAccountService.deleteUserAccount(id);
     }
 }
